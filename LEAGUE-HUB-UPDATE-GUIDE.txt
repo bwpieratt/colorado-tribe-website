@@ -1,0 +1,33 @@
+COLORADO TRIBE WEBSITE V7 — LEAGUE HUB
+
+WHAT'S NEW
+- League Hub page
+- Preseason standings table
+- League team directory
+- Individual team profile pages
+- Ballparks directory
+- Individual ballpark guide pages
+- Central teams.json, standings.json, and ballparks.json files
+- Navigation links for League and Ballparks
+
+HOW TO UPDATE STANDINGS
+1. Open data/standings.json.
+2. Update each team's wins, losses, pct, gb, last10, and streak.
+3. Save the file.
+4. Commit and push through GitHub Desktop.
+
+HOW TO UPDATE A BALLPARK
+1. Open data/ballparks.json.
+2. Update parking, seating, concessions, restrooms, dimensions, notes, or photo.
+3. Add the photo to images/ballparks and enter its path.
+
+HOW TO PUBLISH
+1. Unzip this package.
+2. Open GitHub Desktop.
+3. Click Repository > Show in Finder.
+4. Copy every file and folder from this package into the repository folder.
+5. Choose Replace.
+6. Commit with:
+   Add League Hub and Ballpark Guides
+7. Push origin.
+8. Cloudflare deploys automatically.

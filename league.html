@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07192d">
+<title>League Hub | Colorado Tribe Baseball</title>
+<link rel="stylesheet" href="css/tribe.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-brand" href="index.html">
+      <img src="images/logos/tribe-logo.png" alt="Colorado Tribe Baseball">
+      <span>Colorado Tribe Baseball</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    <nav class="site-nav" id="siteNav">
+      <a href="index.html">Home</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="roster.html">Roster</a>
+      <a href="coaches.html">Coaches</a>
+      <a href="stats.html">Stats</a>
+      <a href="news.html">News</a>
+      <a aria-current="page" href="league.html">League</a>
+      <a href="ballparks.html">Ballparks</a>
+      <a href="host-families.html">Host Families</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+<main class="league-page">
+  <section class="league-hero">
+    <div>
+      <p class="section-kicker">Mile High Collegiate Baseball League</p>
+      <h1>League Hub</h1>
+      <p>Standings, teams, ballparks, and league information for the 2026 summer season.</p>
+    </div>
+    <img src="images/logos/mile-high-playoffs.jpg" alt="Mile High Collegiate Baseball League">
+  </section>
+
+  <section class="league-quicklinks">
+    <a href="#standings"><strong>Standings</strong><span>Current league table</span></a>
+    <a href="#teams"><strong>Teams</strong><span>League team directory</span></a>
+    <a href="schedule.html"><strong>Schedule</strong><span>Colorado Tribe schedule</span></a>
+    <a href="ballparks.html"><strong>Ballparks</strong><span>Venue information</span></a>
+  </section>
+
+  <section class="league-section" id="standings">
+    <div class="league-section-heading">
+      <div><p class="section-kicker">2026 Season</p><h2>Standings</h2></div>
+      <span>Preseason</span>
+    </div>
+    <div class="standings-table-wrap">
+      <table class="standings-table">
+        <thead>
+          <tr><th>Team</th><th>W</th><th>L</th><th>PCT</th><th>GB</th><th>Last 10</th><th>Streak</th></tr>
+        </thead>
+        <tbody id="standingsBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="league-section" id="teams">
+    <div class="league-section-heading">
+      <div><p class="section-kicker">League Directory</p><h2>Teams</h2></div>
+    </div>
+    <div class="league-team-grid" id="leagueTeamGrid"></div>
+  </section>
+
+  <section class="league-section league-playoffs">
+    <div>
+      <p class="section-kicker">Postseason</p>
+      <h2>2026 Playoffs</h2>
+      <p>Playoff information, seeding, and bracket details will be added as the regular season concludes.</p>
+    </div>
+    <img src="images/logos/mile-high-playoffs.jpg" alt="Mile High Collegiate Baseball League playoffs">
+  </section>
+</main>
+
+
+<footer class="site-footer site-footer-expanded">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="images/logos/tribe-logo.png" alt="Colorado Tribe Baseball">
+      <div>
+        <strong>Colorado Tribe Baseball</strong>
+        <p>Summer collegiate baseball in Colorado.</p>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="schedule.html">Schedule</a>
+      <a href="roster.html">Roster</a>
+      <a href="league.html">League</a>
+      <a href="ballparks.html">Ballparks</a>
+      <a href="news.html">News</a>
+      <a href="host-families.html">Host Families</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <small>© 2026 Colorado Tribe Baseball. All rights reserved.</small>
+</footer>
+
+<script src="js/tribe.js"></script>
+<script src="js/league.js"></script>
+</body>
+</html>
