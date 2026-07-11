@@ -819,3 +819,36 @@ h1 {
 @media(max-width:900px){
   .profile-grid,.news-page-grid,.sponsor-tier-grid,.team-callouts{grid-template-columns:1fr;}
 }
+
+
+
+/* Version 4 homepage refinements */
+.site-ticker{overflow:hidden;color:#fff;background:var(--red);border-bottom:1px solid rgba(255,255,255,.15)}
+.site-ticker-track{display:flex;gap:52px;width:max-content;padding:9px 0;animation:tribeTicker 34s linear infinite;font-size:.7rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.site-ticker-track span::before{content:"⚾";margin-right:9px}
+@keyframes tribeTicker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.home-hero{min-height:680px}
+.home-hero h1{font-size:clamp(3.5rem,7vw,7rem)}
+.v4-section{width:min(1220px,calc(100% - 28px));margin:auto;padding-top:82px}
+.v4-section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.v4-section-heading h2{margin:0;color:var(--navy);font-size:clamp(2.1rem,4vw,3.6rem);line-height:1}
+.v4-section-heading>a{color:var(--columbia-dark);text-decoration:none;font-weight:900}
+.v4-upcoming-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px}
+.v4-upcoming-card{position:relative;display:grid;grid-template-columns:88px 105px 1fr;align-items:center;min-height:132px;overflow:hidden;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 10px 26px rgba(7,25,45,.07)}
+.v4-upcoming-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:7px;background:var(--red)}
+.v4-upcoming-card.home::before{background:var(--columbia)}
+.v4-upcoming-date{height:100%;display:flex;flex-direction:column;justify-content:center;padding:18px;border-right:1px solid var(--line)}
+.v4-upcoming-date span{color:var(--red);font-size:.67rem;font-weight:950;letter-spacing:.1em;text-transform:uppercase}
+.v4-upcoming-date strong{margin-top:5px;color:var(--navy)}
+.v4-upcoming-card img{width:82px;height:82px;margin:auto;object-fit:contain}
+.v4-upcoming-card>div:last-child{padding:18px}.v4-upcoming-card h3{margin:7px 0 3px;color:var(--navy)}.v4-upcoming-card p{margin:0;color:var(--muted);font-size:.82rem}
+.v4-tag{display:inline-flex;padding:4px 8px;border-radius:999px;color:#fff;background:var(--red);font-size:.58rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.v4-upcoming-card.home .v4-tag{color:var(--navy);background:var(--columbia)}
+.v4-spotlight-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.v4-spotlight-card{display:grid;grid-template-columns:42% 1fr;min-height:360px;overflow:hidden;border-radius:22px;background:linear-gradient(135deg,#eaf5fc,#dbeef9)}
+.v4-spotlight-dark{color:#fff;background:linear-gradient(135deg,var(--navy),var(--navy-2))}
+.v4-photo-placeholder{display:grid;place-items:center;min-height:100%;color:#8192a0;background:rgba(255,255,255,.45);font-size:.72rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase}
+.v4-spotlight-dark .v4-photo-placeholder{color:#a8bac9;background:rgba(255,255,255,.06)}
+.v4-spotlight-copy{padding:38px}.v4-spotlight-copy h2{margin:0;color:var(--navy);font-size:2.2rem}.v4-spotlight-dark h2{color:#fff}.v4-spotlight-copy p{line-height:1.7}.v4-spotlight-dark .v4-spotlight-copy p{color:#d7e4ed}
+@media(max-width:850px){.v4-upcoming-grid,.v4-spotlight-grid{grid-template-columns:1fr}.v4-section-heading{align-items:flex-start;flex-direction:column}}
+@media(max-width:560px){.site-ticker-track{gap:28px}.v4-upcoming-card{grid-template-columns:72px 82px 1fr}.v4-upcoming-card img{width:66px;height:66px}.v4-spotlight-card{grid-template-columns:1fr}.v4-photo-placeholder{min-height:220px}}

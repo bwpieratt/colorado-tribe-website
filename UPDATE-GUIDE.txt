@@ -1,21 +1,17 @@
-COLORADO TRIBE WEBSITE V3 UPDATE
+COLORADO TRIBE WEBSITE V4
 
 WHAT'S NEW
-- Coaches page
-- News page
-- Sponsors page
-- Expanded navigation
-- New homepage leadership and sponsor callouts
-- Consistent responsive styling
+- Live announcement ticker
+- Stronger homepage headline
+- Upcoming games preview with opponent logos
+- Featured player and coach spotlight sections
+- Additional responsive styling
 
 HOW TO PUBLISH
 1. Unzip this package.
-2. Open GitHub Desktop.
-3. Choose Repository > Show in Finder.
-4. Copy every file and folder from this package into the repository folder.
-5. Choose Replace when macOS asks.
-6. In GitHub Desktop, use summary:
-   Add coaches news and sponsors pages
-7. Click Commit to main.
-8. Click Push origin.
-9. Cloudflare deploys automatically.
+2. In GitHub Desktop, choose Repository > Show in Finder.
+3. Copy every file and folder from this package into the repository folder.
+4. Choose Replace when prompted.
+5. Commit with: Launch Version 4 homepage
+6. Push origin.
+7. Cloudflare deploys automatically.
