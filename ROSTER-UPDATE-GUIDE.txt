@@ -1,0 +1,29 @@
+COLORADO TRIBE WEBSITE V5 — ROSTER SYSTEM
+
+WHAT'S NEW
+- Searchable and filterable roster page
+- Player cards
+- Roster summary statistics
+- Editable roster data file
+- Individual player profile pages
+- Player profile template
+- Player photo folder
+
+HOW TO EDIT THE ROSTER
+1. Open data/roster.json in a plain-text editor.
+2. Replace each placeholder player's information.
+3. Add the photo path, for example:
+   "photo": "images/players/john-smith.jpg"
+4. Put that photo inside images/players.
+5. Copy player-template.html for each new player, rename it, and update the text.
+
+HOW TO PUBLISH
+1. Unzip this package.
+2. Open GitHub Desktop.
+3. Click Repository > Show in Finder.
+4. Copy every file and folder from this package into the repository folder.
+5. Choose Replace when asked.
+6. Commit with:
+   Build roster and player profiles
+7. Push origin.
+8. Cloudflare deploys automatically.

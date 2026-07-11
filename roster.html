@@ -4,51 +4,95 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07192d">
+<meta name="description" content="2026 Colorado Tribe Baseball roster.">
 <title>Roster | Colorado Tribe Baseball</title>
 <link rel="stylesheet" href="css/tribe.css">
 </head>
 <body>
 
 <header class="site-header">
-<div class="site-header-inner">
-<a class="site-brand" href="index.html">
-<img alt="Colorado Tribe Baseball" src="images/logos/tribe-logo.png"/>
-<span>Colorado Tribe Baseball</span>
-</a>
-<button aria-controls="siteNav" aria-expanded="false" class="nav-toggle" type="button">Menu</button>
-<nav class="site-nav" id="siteNav">
-<a href="index.html">Home</a>
-<a href="schedule.html">Schedule</a>
-<a aria-current="page" href="roster.html">Roster</a>
-<a href="stats.html">Stats</a>
-<a href="host-families.html">Host Families</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-</nav>
-</div>
+  <div class="site-header-inner">
+    <a class="site-brand" href="index.html">
+      <img src="images/logos/tribe-logo.png" alt="Colorado Tribe Baseball">
+      <span>Colorado Tribe Baseball</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    <nav class="site-nav" id="siteNav">
+      <a href="index.html">Home</a>
+      <a href="schedule.html">Schedule</a>
+      <a aria-current="page" href="roster.html">Roster</a>
+      <a href="coaches.html">Coaches</a>
+      <a href="stats.html">Stats</a>
+      <a href="news.html">News</a>
+      <a href="host-families.html">Host Families</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
 
+<main class="roster-page">
+  <section class="roster-hero">
+    <div>
+      <p class="section-kicker">Colorado Tribe Baseball</p>
+      <h1>2026 Roster</h1>
+      <p>Meet the collegiate players representing the Tribe during the 2026 summer season.</p>
+    </div>
+    <img src="images/logos/tribe-logo.png" alt="Colorado Tribe Baseball">
+  </section>
 
-<main class="page-shell">
-  <section class="page-hero">
-    <h1>Roster</h1>
-    <p>Add player headshots, positions, hometowns, schools, and player profile links here.</p>
+  <section class="roster-tools" aria-label="Roster filters">
+    <div class="roster-search-wrap">
+      <label for="rosterSearch">Search players</label>
+      <input id="rosterSearch" type="search" placeholder="Search by name, position, college, or hometown">
+    </div>
+    <div class="roster-filter-wrap">
+      <label for="positionFilter">Position</label>
+      <select id="positionFilter">
+        <option value="all">All positions</option>
+        <option value="P">Pitchers</option>
+        <option value="C">Catchers</option>
+        <option value="INF">Infielders</option>
+        <option value="OF">Outfielders</option>
+        <option value="UTIL">Utility</option>
+      </select>
+    </div>
   </section>
-  <section class="content-grid">
-    <article class="content-card">
-      <h2>Page Ready</h2>
-      <p>This starter page already uses the shared Colorado Tribe header, navigation, colors, responsive layout, and footer.</p>
-    </article>
+
+  <section class="roster-summary">
+    <div><strong id="playerCount">0</strong><span>Players</span></div>
+    <div><strong id="collegeCount">0</strong><span>Colleges Represented</span></div>
+    <div><strong id="stateCount">0</strong><span>States Represented</span></div>
   </section>
+
+  <section class="roster-grid" id="rosterGrid" aria-live="polite"></section>
+
+  <p class="roster-empty" id="rosterEmpty" hidden>No players match your search.</p>
 </main>
 
-
-<footer class="site-footer">
-  <strong>Colorado Tribe Baseball</strong>
-  <p>© 2026 Colorado Tribe Baseball</p>
-  <p><a href="schedule.html">Schedule</a> · <a href="contact.html">Contact</a></p>
+<footer class="site-footer site-footer-expanded">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="images/logos/tribe-logo.png" alt="Colorado Tribe Baseball">
+      <div>
+        <strong>Colorado Tribe Baseball</strong>
+        <p>Summer collegiate baseball in Colorado.</p>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="schedule.html">Schedule</a>
+      <a href="roster.html">Roster</a>
+      <a href="coaches.html">Coaches</a>
+      <a href="news.html">News</a>
+      <a href="host-families.html">Host Families</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <small>© 2026 Colorado Tribe Baseball. All rights reserved.</small>
 </footer>
 
 <script src="js/tribe.js"></script>
+<script src="js/roster.js"></script>
 </body>
 </html>
