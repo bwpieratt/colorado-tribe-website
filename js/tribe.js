@@ -95,3 +95,22 @@
   document.getElementById('awayRecord').textContent = recordFor(cards.filter(c => c.classList.contains('away')));
 
 })();
+
+
+(() => {
+  const countdown = document.getElementById('openingCountdown');
+  if (!countdown) return;
+  const gameTime = new Date('2026-05-30T10:00:00-06:00');
+  function updateCountdown() {
+    const diff = gameTime.getTime() - Date.now();
+    if (diff <= 0) {
+      countdown.textContent = 'Game Day';
+      return;
+    }
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    countdown.textContent = `${days}d ${hours}h to first pitch`;
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+})();

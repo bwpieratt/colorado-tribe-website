@@ -4,49 +4,209 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07192d">
+<meta name="description" content="Official website of Colorado Tribe Baseball, a summer collegiate baseball organization in Colorado.">
 <title>Colorado Tribe Baseball</title>
 <link rel="stylesheet" href="css/tribe.css">
 </head>
 <body>
 
 <header class="site-header">
-<div class="site-header-inner">
-<a class="site-brand" href="index.html">
-<img alt="Colorado Tribe Baseball" src="images/logos/tribe-logo.png"/>
-<span>Colorado Tribe Baseball</span>
-</a>
-<button aria-controls="siteNav" aria-expanded="false" class="nav-toggle" type="button">Menu</button>
-<nav class="site-nav" id="siteNav">
-<a aria-current="page" href="index.html">Home</a>
-<a href="schedule.html">Schedule</a>
-<a href="roster.html">Roster</a>
-<a href="stats.html">Stats</a>
-<a href="host-families.html">Host Families</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-</nav>
-</div>
+  <div class="site-header-inner">
+    <a class="site-brand" href="index.html">
+      <img src="images/logos/tribe-logo.png" alt="Colorado Tribe Baseball">
+      <span>Colorado Tribe Baseball</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    <nav class="site-nav" id="siteNav">
+      <a aria-current="page" href="index.html">Home</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="roster.html">Roster</a>
+      <a href="coaches.html">Coaches</a>
+      <a href="stats.html">Stats</a>
+      <a href="news.html">News</a>
+      <a href="host-families.html">Host Families</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
 
-
-<main class="page-shell">
-  <section class="page-hero">
-    <h1>Colorado Tribe Baseball</h1>
-    <p>Summer collegiate baseball in Colorado. Follow the 2026 season, meet the roster, view statistics, and support the Tribe.</p>
+<main>
+  <section class="home-hero">
+    <div class="home-hero-overlay"></div>
+    <div class="home-hero-inner">
+      <div class="home-hero-logo">
+        <img src="images/logos/tribe-logo.png" alt="Colorado Tribe Baseball logo">
+      </div>
+      <div class="home-hero-copy">
+        <p class="home-eyebrow">Summer Collegiate Baseball · Colorado</p>
+        <h1>Train. Compete. Tribe.</h1>
+        <p>Follow the Colorado Tribe through the 2026 Mile High Collegiate Baseball League season.</p>
+        <div class="home-hero-actions">
+          <a class="button button-primary" href="schedule.html">View Schedule</a>
+          <a class="button button-secondary" href="roster.html">Meet the Tribe</a>
+        </div>
+      </div>
+    </div>
   </section>
-  <section class="content-grid">
-    <article class="content-card"><h2>2026 Schedule</h2><p>View opponents, game times, venues, GameChanger access, and directions.</p><a href="schedule.html">View Schedule →</a></article>
-    <article class="content-card"><h2>Meet the Tribe</h2><p>Add player profiles, positions, schools, and season information.</p><a href="roster.html">View Roster →</a></article>
-    <article class="content-card"><h2>Host Families</h2><p>Learn how local families can support summer collegiate players.</p><a href="host-families.html">Learn More →</a></article>
+
+  <section class="home-status" aria-label="Season overview">
+    <div class="home-status-item"><strong>2026</strong><span>Summer Season</span></div>
+    <div class="home-status-item"><strong>0–0</strong><span>Overall Record</span></div>
+    <div class="home-status-item"><strong>Colorado</strong><span>Collegiate Baseball</span></div>
+  </section>
+
+  <section class="home-section home-next-game">
+    <div class="section-heading">
+      <p class="section-kicker">Opening Day</p>
+      <h2>Next Game</h2>
+    </div>
+
+    <article class="next-game-card">
+      <div class="next-game-date"><span>Saturday</span><strong>May 30</strong><small>2026</small></div>
+      <div class="next-game-team next-game-tribe">
+        <img src="images/logos/tribe-logo.png" alt="Colorado Tribe">
+        <h3>Colorado Tribe</h3>
+      </div>
+      <div class="next-game-versus"><span>vs</span><strong id="openingCountdown">Opening Day</strong></div>
+      <div class="next-game-team">
+        <img src="images/logos/cutthroats.jpg" alt="Colorado Cutthroats">
+        <h3>CO Cutthroats</h3>
+      </div>
+      <div class="next-game-details">
+        <div><span>Time</span><strong>10:00 AM / 12:30 PM</strong></div>
+        <div><span>Venue</span><strong>Doherty HS</strong></div>
+        <div><span>Format</span><strong>Doubleheader</strong></div>
+      </div>
+      <div class="next-game-actions">
+        <a class="button button-primary" href="schedule.html">Full Schedule</a>
+        <button class="button button-outline directions-trigger" type="button"
+          data-location="Doherty HS"
+          data-google="https://www.google.com/maps/search/?api=1&query=Doherty+High+School+Colorado+Springs+CO"
+          data-apple="https://maps.apple.com/?q=Doherty+High+School+Colorado+Springs+CO"
+          data-waze="https://www.waze.com/ul?q=Doherty+High+School+Colorado+Springs+CO&navigate=yes">Directions</button>
+      </div>
+    </article>
+  </section>
+
+  <section class="home-section home-feature-grid">
+    <article class="home-feature-card">
+      <span class="feature-number">01</span>
+      <h2>2026 Schedule</h2>
+      <p>Opponent logos, home and away designations, game times, venues, GameChanger access, and directions.</p>
+      <a href="schedule.html">View Schedule →</a>
+    </article>
+    <article class="home-feature-card">
+      <span class="feature-number">02</span>
+      <h2>Meet the Tribe</h2>
+      <p>Player profiles, colleges, positions, hometowns, and season information will be featured here.</p>
+      <a href="roster.html">View Roster →</a>
+    </article>
+    <article class="home-feature-card">
+      <span class="feature-number">03</span>
+      <h2>Follow the Season</h2>
+      <p>Team and player statistics, season leaders, results, and recaps will be available throughout the summer.</p>
+      <a href="stats.html">View Stats →</a>
+    </article>
+  </section>
+
+
+  <section class="home-section team-callouts">
+    <article class="team-callout">
+      <p class="section-kicker">Leadership</p>
+      <h2>Meet the Coaches</h2>
+      <p>Learn about the staff guiding player development, competition, and the Tribe experience.</p>
+      <a class="button button-secondary" href="coaches.html">Coaching Staff</a>
+    </article>
+    <article class="team-callout team-callout-dark">
+      <p class="section-kicker">Community</p>
+      <h2>Partner With the Tribe</h2>
+      <p>Connect your business with collegiate baseball players, families, and fans across Colorado.</p>
+      <a class="button button-light" href="sponsors.html">Sponsor Opportunities</a>
+    </article>
+  </section>
+
+  <section class="home-section home-news">
+    <div class="section-heading section-heading-row">
+      <div><p class="section-kicker">Inside the Tribe</p><h2>Latest News</h2></div>
+      <a href="news.html">View all news →</a>
+    </div>
+    <div class="news-grid">
+      <article class="news-card news-card-featured">
+        <span>Team News</span>
+        <h3>Colorado Tribe Announces 2026 Summer Schedule</h3>
+        <p>The Tribe opens the season May 30 and will compete throughout June and July in the Mile High Collegiate Baseball League.</p>
+        <a href="schedule.html">View the schedule →</a>
+      </article>
+      <article class="news-card">
+        <span>Community</span>
+        <h3>Host Families Make Summer Baseball Possible</h3>
+        <p>Learn how local families can support collegiate players and become part of the Tribe community.</p>
+        <a href="host-families.html">Become a host family →</a>
+      </article>
+      <article class="news-card">
+        <span>Organization</span>
+        <h3>Partner With Colorado Tribe Baseball</h3>
+        <p>Sponsor opportunities will connect local businesses with players, families, and baseball fans across Colorado.</p>
+        <a href="sponsors.html">Explore sponsorships →</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="home-section host-cta">
+    <div>
+      <p class="section-kicker">Join the Tribe</p>
+      <h2>Become a Host Family</h2>
+      <p>Provide a collegiate baseball player with a welcoming home and become part of his summer experience in Colorado.</p>
+    </div>
+    <a class="button button-light" href="host-families.html">Learn More</a>
+  </section>
+
+  <section class="home-section sponsor-section">
+    <div class="section-heading">
+      <p class="section-kicker">Community Partners</p>
+      <h2>Support Colorado Tribe Baseball</h2>
+      <p>Sponsor logos and partnership opportunities can be added here as the organization grows.</p>
+    </div>
+    <div class="sponsor-placeholder-grid">
+      <div>Presenting Sponsor</div>
+      <div>Community Partner</div>
+      <div>Baseball Partner</div>
+      <div>Team Supporter</div>
+    </div>
   </section>
 </main>
 
-
-<footer class="site-footer">
-  <strong>Colorado Tribe Baseball</strong>
-  <p>© 2026 Colorado Tribe Baseball</p>
-  <p><a href="schedule.html">Schedule</a> · <a href="contact.html">Contact</a></p>
+<footer class="site-footer site-footer-expanded">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="images/logos/tribe-logo.png" alt="Colorado Tribe Baseball">
+      <div><strong>Colorado Tribe Baseball</strong><p>Summer collegiate baseball in Colorado.</p></div>
+    </div>
+    <div class="footer-links">
+      <a href="schedule.html">Schedule</a>
+      <a href="roster.html">Roster</a>
+      <a href="stats.html">Stats</a>
+      <a href="host-families.html">Host Families</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <small>© 2026 Colorado Tribe Baseball. All rights reserved.</small>
 </footer>
+
+<div class="directions-modal" id="directionsModal" aria-hidden="true">
+  <div class="directions-dialog" role="dialog" aria-modal="true" aria-labelledby="directionsTitle">
+    <div class="directions-dialog-header">
+      <div><h2 id="directionsTitle">Open Directions</h2><span class="directions-location" id="directionsLocation"></span></div>
+      <button class="directions-close" type="button" aria-label="Close directions menu">×</button>
+    </div>
+    <div class="directions-options">
+      <a id="googleMapsLink" href="#" target="_blank" rel="noopener">Google Maps <span>Best for most devices</span></a>
+      <a id="appleMapsLink" href="#" target="_blank" rel="noopener">Apple Maps <span>iPhone, iPad, and Mac</span></a>
+      <a id="wazeLink" href="#" target="_blank" rel="noopener">Waze <span>Live traffic navigation</span></a>
+    </div>
+  </div>
+</div>
 
 <script src="js/tribe.js"></script>
 </body>
