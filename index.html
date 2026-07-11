@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07192d">
-<meta name="description" content="Official website of Colorado Tribe Baseball, a summer collegiate baseball organization in Colorado.">
+<meta name="description" content="Official website of Colorado Tribe Baseball. Follow the 2026 summer collegiate season, schedule, roster, news, and GameCenter.">
 <title>Colorado Tribe Baseball</title>
 <link rel="stylesheet" href="css/tribe.css">
 </head>
@@ -32,182 +32,274 @@
     </nav>
   </div>
 </header>
-<div class="site-ticker" aria-label="Colorado Tribe announcements">
-  <div class="site-ticker-track">
-    <span>2026 Summer Schedule Released</span><span>Host Families Needed</span><span>Opening Day: May 30</span><span>Follow Colorado Tribe Baseball</span>
-    <span>2026 Summer Schedule Released</span><span>Host Families Needed</span><span>Opening Day: May 30</span><span>Follow Colorado Tribe Baseball</span>
+
+<div class="v8-ticker" aria-label="Colorado Tribe announcements">
+  <div class="v8-ticker-track">
+    <span>2026 Summer Schedule Released</span>
+    <span>Opening Day — May 30</span>
+    <span>Host Families Needed</span>
+    <span>Sponsor Opportunities Available</span>
+    <span>Follow Colorado Tribe Baseball</span>
+    <span>2026 Summer Schedule Released</span>
+    <span>Opening Day — May 30</span>
+    <span>Host Families Needed</span>
   </div>
 </div>
 
 <main>
-  <section class="home-hero">
-    <div class="home-hero-overlay"></div>
-    <div class="home-hero-inner">
-      <div class="home-hero-logo">
+  <section class="v8-hero">
+    <div class="v8-hero-overlay"></div>
+    <div class="v8-hero-grid">
+      <div class="v8-hero-brand">
         <img src="images/logos/tribe-logo.png" alt="Colorado Tribe Baseball logo">
       </div>
-      <div class="home-hero-copy">
-        <p class="home-eyebrow">Summer Collegiate Baseball · Colorado</p>
-        <h1>Built for the Game.</h1>
-        <p>Player development, elite competition, and a first-class summer baseball experience in Colorado.</p>
-        <div class="home-hero-actions">
+      <div class="v8-hero-copy">
+        <p class="section-kicker">2026 Summer Collegiate Baseball</p>
+        <h1>Colorado Tribe Baseball</h1>
+        <p>Built for player development, high-level competition, and a first-class summer baseball experience in Colorado.</p>
+        <div class="v8-hero-actions">
           <a class="button button-primary" href="schedule.html">View Schedule</a>
-          <a class="button button-secondary" href="roster.html">Meet the Tribe</a>
+          <a class="button button-secondary" href="roster.html">Meet the Team</a>
+          <a class="button button-outline-light" href="host-families.html">Host a Player</a>
         </div>
       </div>
     </div>
+    <div class="v8-scroll-cue">Scroll to explore</div>
   </section>
 
-  <section class="home-status" aria-label="Season overview">
-    <div class="home-status-item"><strong>2026</strong><span>Summer Season</span></div>
-    <div class="home-status-item"><strong>0–0</strong><span>Overall Record</span></div>
-    <div class="home-status-item"><strong>Colorado</strong><span>Collegiate Baseball</span></div>
+  <section class="v8-dashboard" aria-label="Season dashboard">
+    <article>
+      <span>Current Record</span>
+      <strong id="homeRecord">0–0</strong>
+    </article>
+    <article>
+      <span>League Standing</span>
+      <strong id="homeStanding">Preseason</strong>
+    </article>
+    <article>
+      <span>Opening Day</span>
+      <strong>May 30</strong>
+    </article>
+    <article>
+      <span>Season</span>
+      <strong>2026</strong>
+    </article>
   </section>
 
-  <section class="home-section home-next-game">
-    <div class="section-heading">
-      <p class="section-kicker">Opening Day</p>
-      <h2>Next Game</h2>
+  <section class="v8-section">
+    <div class="v8-heading-row">
+      <div>
+        <p class="section-kicker">GameCenter</p>
+        <h2>Next Game</h2>
+      </div>
+      <a href="schedule.html">Full Schedule →</a>
     </div>
 
-    <article class="next-game-card">
-      <div class="next-game-date"><span>Saturday</span><strong>May 30</strong><small>2026</small></div>
-      <div class="next-game-team next-game-tribe">
+    <article class="v8-next-game">
+      <div class="v8-next-date">
+        <span>Saturday</span>
+        <strong>May 30</strong>
+        <small>10:00 AM / 12:30 PM</small>
+      </div>
+
+      <div class="v8-next-team">
         <img src="images/logos/tribe-logo.png" alt="Colorado Tribe">
         <h3>Colorado Tribe</h3>
       </div>
-      <div class="next-game-versus"><span>vs</span><strong id="openingCountdown">Opening Day</strong></div>
-      <div class="next-game-team">
-        <img src="images/logos/cutthroats.jpg" alt="Colorado Cutthroats">
+
+      <div class="v8-next-vs">
+        <span>vs</span>
+        <strong id="openingCountdown">Opening Day</strong>
+      </div>
+
+      <div class="v8-next-team">
+        <img src="images/logos/cutthroats.jpg" alt="CO Cutthroats">
         <h3>CO Cutthroats</h3>
       </div>
-      <div class="next-game-details">
-        <div><span>Time</span><strong>10:00 AM / 12:30 PM</strong></div>
+
+      <div class="v8-next-info">
         <div><span>Venue</span><strong>Doherty HS</strong></div>
         <div><span>Format</span><strong>Doubleheader</strong></div>
+        <div><span>Status</span><strong>Away</strong></div>
       </div>
-      <div class="next-game-actions">
-        <a class="button button-primary" href="schedule.html">Full Schedule</a>
+
+      <div class="v8-next-actions">
+        <a class="button button-primary" href="games/cutthroats-may-30.html">GameCenter</a>
         <button class="button button-outline directions-trigger" type="button"
           data-location="Doherty HS"
           data-google="https://www.google.com/maps/search/?api=1&query=Doherty+High+School+Colorado+Springs+CO"
           data-apple="https://maps.apple.com/?q=Doherty+High+School+Colorado+Springs+CO"
-          data-waze="https://www.waze.com/ul?q=Doherty+High+School+Colorado+Springs+CO&navigate=yes">Directions</button>
+          data-waze="https://www.waze.com/ul?q=Doherty+High+School+Colorado+Springs+CO&navigate=yes">
+          Directions
+        </button>
       </div>
     </article>
   </section>
 
-  <section class="home-section home-feature-grid">
-    <article class="home-feature-card">
-      <span class="feature-number">01</span>
-      <h2>2026 Schedule</h2>
-      <p>Opponent logos, home and away designations, game times, venues, GameChanger access, and directions.</p>
-      <a href="schedule.html">View Schedule →</a>
-    </article>
-    <article class="home-feature-card">
-      <span class="feature-number">02</span>
-      <h2>Meet the Tribe</h2>
-      <p>Player profiles, colleges, positions, hometowns, and season information will be featured here.</p>
-      <a href="roster.html">View Roster →</a>
-    </article>
-    <article class="home-feature-card">
-      <span class="feature-number">03</span>
-      <h2>Follow the Season</h2>
-      <p>Team and player statistics, season leaders, results, and recaps will be available throughout the summer.</p>
-      <a href="stats.html">View Stats →</a>
-    </article>
-  </section>
-
-
-  <section class="home-section team-callouts">
-    <article class="team-callout">
-      <p class="section-kicker">Leadership</p>
-      <h2>Meet the Coaches</h2>
-      <p>Learn about the staff guiding player development, competition, and the Tribe experience.</p>
-      <a class="button button-secondary" href="coaches.html">Coaching Staff</a>
-    </article>
-    <article class="team-callout team-callout-dark">
-      <p class="section-kicker">Community</p>
-      <h2>Partner With the Tribe</h2>
-      <p>Connect your business with collegiate baseball players, families, and fans across Colorado.</p>
-      <a class="button button-light" href="sponsors.html">Sponsor Opportunities</a>
-    </article>
-  </section>
-
-  
-<section class="v4-section">
-  <div class="v4-section-heading">
-    <div><p class="section-kicker">On Deck</p><h2>Upcoming Games</h2></div>
-    <a href="schedule.html">View all games →</a>
-  </div>
-  <div class="v4-upcoming-grid">
-    <article class="v4-upcoming-card home"><div class="v4-upcoming-date"><span>Thu</span><strong>Jun 4</strong></div><img src="images/logos/cutthroats.jpg" alt="CO Cutthroats"><div><span class="v4-tag">Home</span><h3>CO Cutthroats</h3><p>3:00 PM / 5:30 PM</p></div></article>
-    <article class="v4-upcoming-card home"><div class="v4-upcoming-date"><span>Mon</span><strong>Jun 8</strong></div><img src="images/logos/arvada-elite.png" alt="Arvada Elite"><div><span class="v4-tag">Home</span><h3>Arvada Elite</h3><p>3:00 PM / 5:30 PM</p></div></article>
-    <article class="v4-upcoming-card away"><div class="v4-upcoming-date"><span>Tue</span><strong>Jun 9</strong></div><img src="images/logos/dirt-devils.png" alt="Loveland Dirt Devils"><div><span class="v4-tag">Away</span><h3>Loveland Dirt Devils</h3><p>3:00 PM / 5:30 PM</p></div></article>
-    <article class="v4-upcoming-card away"><div class="v4-upcoming-date"><span>Thu</span><strong>Jun 11</strong></div><img src="images/logos/denver-generals.png" alt="Denver Generals"><div><span class="v4-tag">Away</span><h3>Denver Generals</h3><p>4:00 PM / 6:00 PM</p></div></article>
-  </div>
-</section>
-
-<section class="home-section home-news">
-    <div class="section-heading section-heading-row">
-      <div><p class="section-kicker">Inside the Tribe</p><h2>Latest News</h2></div>
-      <a href="news.html">View all news →</a>
+  <section class="v8-section">
+    <div class="v8-heading-row">
+      <div>
+        <p class="section-kicker">On Deck</p>
+        <h2>Upcoming Games</h2>
+      </div>
+      <a href="schedule.html">View all games →</a>
     </div>
-    <div class="news-grid">
-      <article class="news-card news-card-featured">
+
+    <div class="v8-upcoming">
+      <article class="v8-upcoming-card home">
+        <div class="v8-upcoming-date"><span>Thu</span><strong>Jun 4</strong></div>
+        <img src="images/logos/cutthroats.jpg" alt="CO Cutthroats">
+        <div class="v8-upcoming-copy">
+          <span class="v8-pill">Home</span>
+          <h3>CO Cutthroats</h3>
+          <p>3:00 PM / 5:30 PM</p>
+          <a href="games/cutthroats-june-4.html">GameCenter →</a>
+        </div>
+      </article>
+
+      <article class="v8-upcoming-card home">
+        <div class="v8-upcoming-date"><span>Mon</span><strong>Jun 8</strong></div>
+        <img src="images/logos/arvada-elite.png" alt="Arvada Elite">
+        <div class="v8-upcoming-copy">
+          <span class="v8-pill">Home</span>
+          <h3>Arvada Elite</h3>
+          <p>3:00 PM / 5:30 PM</p>
+          <a href="games/arvada-elite-june-8.html">GameCenter →</a>
+        </div>
+      </article>
+
+      <article class="v8-upcoming-card away">
+        <div class="v8-upcoming-date"><span>Tue</span><strong>Jun 9</strong></div>
+        <img src="images/logos/dirt-devils.png" alt="Loveland Dirt Devils">
+        <div class="v8-upcoming-copy">
+          <span class="v8-pill">Away</span>
+          <h3>Loveland Dirt Devils</h3>
+          <p>3:00 PM / 5:30 PM</p>
+          <a href="games/dirt-devils-june-9.html">GameCenter →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="v8-section v8-feature-grid">
+    <article class="v8-feature-card v8-player-feature">
+      <div class="v8-feature-photo" id="featuredPlayerPhoto">Player Photo</div>
+      <div class="v8-feature-copy">
+        <p class="section-kicker">Featured Player</p>
+        <h2 id="featuredPlayerName">Player Spotlight</h2>
+        <p><strong id="featuredPlayerPosition">Position</strong> · <span id="featuredPlayerCollege">College / University</span></p>
+        <p>Use this space for a weekly player feature, recent performance, or short biography.</p>
+        <a class="button button-secondary" href="roster.html" id="featuredPlayerLink">View Roster</a>
+      </div>
+    </article>
+
+    <article class="v8-feature-card v8-coach-feature">
+      <div class="v8-feature-photo">Coach Photo</div>
+      <div class="v8-feature-copy">
+        <p class="section-kicker">Leadership</p>
+        <h2>Meet the Coaches</h2>
+        <p>Learn about the staff guiding player development, competition, and the Colorado Tribe experience.</p>
+        <a class="button button-light" href="coaches.html">Coaching Staff</a>
+      </div>
+    </article>
+  </section>
+
+  <section class="v8-section">
+    <div class="v8-heading-row">
+      <div>
+        <p class="section-kicker">Inside the Tribe</p>
+        <h2>Latest News</h2>
+      </div>
+      <a href="news.html">All News →</a>
+    </div>
+
+    <div class="v8-news-grid">
+      <article class="v8-news-card featured">
         <span>Team News</span>
         <h3>Colorado Tribe Announces 2026 Summer Schedule</h3>
-        <p>The Tribe opens the season May 30 and will compete throughout June and July in the Mile High Collegiate Baseball League.</p>
-        <a href="schedule.html">View the schedule →</a>
+        <p>The Tribe opens May 30 and competes throughout June and July.</p>
+        <a href="schedule.html">View Schedule →</a>
       </article>
-      <article class="news-card">
+      <article class="v8-news-card">
         <span>Community</span>
-        <h3>Host Families Make Summer Baseball Possible</h3>
-        <p>Learn how local families can support collegiate players and become part of the Tribe community.</p>
-        <a href="host-families.html">Become a host family →</a>
+        <h3>Host Families Needed</h3>
+        <p>Local families can support collegiate players and become part of the Tribe community.</p>
+        <a href="host-families.html">Learn More →</a>
       </article>
-      <article class="news-card">
-        <span>Organization</span>
-        <h3>Partner With Colorado Tribe Baseball</h3>
-        <p>Sponsor opportunities will connect local businesses with players, families, and baseball fans across Colorado.</p>
-        <a href="sponsors.html">Explore sponsorships →</a>
+      <article class="v8-news-card">
+        <span>Partners</span>
+        <h3>Sponsor Opportunities</h3>
+        <p>Connect your business with players, families, and baseball fans across Colorado.</p>
+        <a href="sponsors.html">Become a Sponsor →</a>
       </article>
     </div>
   </section>
 
-  
-<section class="v4-section v4-spotlight-grid">
-  <article class="v4-spotlight-card">
-    <div class="v4-photo-placeholder">Player Photo</div>
-    <div class="v4-spotlight-copy"><p class="section-kicker">Featured Player</p><h2>Player Spotlight</h2><p>Add a weekly player feature with college, position, hometown, statistics, and a short biography.</p><a class="button button-secondary" href="roster.html">View Roster</a></div>
-  </article>
-  <article class="v4-spotlight-card v4-spotlight-dark">
-    <div class="v4-photo-placeholder">Coach Photo</div>
-    <div class="v4-spotlight-copy"><p class="section-kicker">Leadership</p><h2>Meet the Coaches</h2><p>Showcase the staff leading development, competition, and the Colorado Tribe experience.</p><a class="button button-light" href="coaches.html">Coaching Staff</a></div>
-  </article>
-</section>
+  <section class="v8-section v8-standings-preview">
+    <div class="v8-heading-row">
+      <div>
+        <p class="section-kicker">Mile High Collegiate Baseball League</p>
+        <h2>Standings Preview</h2>
+      </div>
+      <a href="league.html">Full Standings →</a>
+    </div>
+    <div class="v8-standings-table">
+      <div class="v8-standings-head"><span>Team</span><span>W</span><span>L</span><span>PCT</span></div>
+      <div id="homepageStandings"></div>
+    </div>
+  </section>
 
-<section class="home-section host-cta">
+  <section class="v8-host-cta">
     <div>
       <p class="section-kicker">Join the Tribe</p>
       <h2>Become a Host Family</h2>
-      <p>Provide a collegiate baseball player with a welcoming home and become part of his summer experience in Colorado.</p>
+      <p>Help a collegiate athlete make Colorado home for the summer.</p>
     </div>
     <a class="button button-light" href="host-families.html">Learn More</a>
   </section>
 
-  <section class="home-section sponsor-section">
-    <div class="section-heading">
-      <p class="section-kicker">Community Partners</p>
-      <h2>Support Colorado Tribe Baseball</h2>
-      <p>Sponsor logos and partnership opportunities can be added here as the organization grows.</p>
+  <section class="v8-section">
+    <div class="v8-heading-row">
+      <div>
+        <p class="section-kicker">Community Partners</p>
+        <h2>Support the Tribe</h2>
+      </div>
+      <a href="sponsors.html">Sponsor Opportunities →</a>
     </div>
-    <div class="sponsor-placeholder-grid">
+    <div class="v8-sponsor-carousel" aria-label="Sponsor placeholders">
       <div>Presenting Sponsor</div>
       <div>Community Partner</div>
       <div>Baseball Partner</div>
       <div>Team Supporter</div>
+      <div>Local Partner</div>
     </div>
+  </section>
+
+  <section class="v8-section v8-social-section">
+    <div class="v8-social-copy">
+      <p class="section-kicker">Follow the Tribe</p>
+      <h2>Stay Connected</h2>
+      <p>Social links can be connected here for highlights, announcements, photos, and game-day updates.</p>
+    </div>
+    <div class="v8-social-links">
+      <a href="#" aria-label="Instagram">Instagram</a>
+      <a href="#" aria-label="Facebook">Facebook</a>
+      <a href="#" aria-label="X">X</a>
+      <a href="#" aria-label="YouTube">YouTube</a>
+    </div>
+  </section>
+
+  <section class="v8-newsletter">
+    <div>
+      <p class="section-kicker">Tribe Updates</p>
+      <h2>Join the Email List</h2>
+      <p>Newsletter signup integration can be added when your preferred email platform is selected.</p>
+    </div>
+    <form class="v8-newsletter-form" onsubmit="return false;">
+      <label class="sr-only" for="newsletterEmail">Email address</label>
+      <input id="newsletterEmail" type="email" placeholder="Email address">
+      <button class="button button-primary" type="submit">Coming Soon</button>
+    </form>
   </section>
 </main>
 
@@ -215,13 +307,19 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <img src="images/logos/tribe-logo.png" alt="Colorado Tribe Baseball">
-      <div><strong>Colorado Tribe Baseball</strong><p>Summer collegiate baseball in Colorado.</p></div>
+      <div>
+        <strong>Colorado Tribe Baseball</strong>
+        <p>Summer collegiate baseball in Colorado.</p>
+      </div>
     </div>
     <div class="footer-links">
       <a href="schedule.html">Schedule</a>
       <a href="roster.html">Roster</a>
-      <a href="stats.html">Stats</a>
+      <a href="league.html">League</a>
+      <a href="ballparks.html">Ballparks</a>
+      <a href="news.html">News</a>
       <a href="host-families.html">Host Families</a>
+      <a href="sponsors.html">Sponsors</a>
       <a href="contact.html">Contact</a>
     </div>
   </div>
@@ -231,7 +329,10 @@
 <div class="directions-modal" id="directionsModal" aria-hidden="true">
   <div class="directions-dialog" role="dialog" aria-modal="true" aria-labelledby="directionsTitle">
     <div class="directions-dialog-header">
-      <div><h2 id="directionsTitle">Open Directions</h2><span class="directions-location" id="directionsLocation"></span></div>
+      <div>
+        <h2 id="directionsTitle">Open Directions</h2>
+        <span class="directions-location" id="directionsLocation"></span>
+      </div>
       <button class="directions-close" type="button" aria-label="Close directions menu">×</button>
     </div>
     <div class="directions-options">
@@ -243,5 +344,6 @@
 </div>
 
 <script src="js/tribe.js"></script>
+<script src="js/homepage.js"></script>
 </body>
 </html>

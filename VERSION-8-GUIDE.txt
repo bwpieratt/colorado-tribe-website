@@ -1,0 +1,39 @@
+COLORADO TRIBE WEBSITE VERSION 8
+
+WHAT'S NEW
+- Complete homepage visual redesign
+- NCAA-style hero section
+- Announcement ticker
+- Season dashboard
+- GameCenter next-game feature
+- Upcoming games preview
+- Featured player and coaching sections
+- News cards
+- Standings preview
+- Host family call-to-action
+- Sponsor carousel
+- Social media area
+- Newsletter-ready section
+- Editable data/homepage.json file
+- Improved mobile layout
+
+HOW TO UPDATE HOMEPAGE DETAILS
+1. Open data/homepage.json.
+2. Update:
+   record
+   league_position
+   featured_player
+   social links
+3. Save the file.
+4. Commit and push through GitHub Desktop.
+
+HOW TO PUBLISH
+1. Unzip this package.
+2. Open GitHub Desktop.
+3. Click Repository > Show in Finder.
+4. Copy every file and folder from this package into the repository folder.
+5. Choose Replace.
+6. Commit with:
+   Launch Version 8 homepage
+7. Push origin.
+8. Cloudflare deploys automatically.
