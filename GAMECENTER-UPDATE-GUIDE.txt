@@ -1,0 +1,32 @@
+COLORADO TRIBE WEBSITE V6 — GAMECENTER
+
+WHAT'S NEW
+- Central data/games.json file
+- Dedicated GameCenter page for every scheduled game
+- Opponent logos, dates, times, venues, home/away status
+- GameChanger placeholder buttons
+- Google Maps, Apple Maps, and Waze directions
+- Sections ready for probable starters, recaps, box scores, Player of the Game, photos, and highlights
+- GameCenter links added to the schedule page
+
+HOW TO UPDATE A GAME
+1. Open data/games.json.
+2. Find the game by its slug.
+3. Add:
+   "gamechanger": "YOUR URL",
+   "score": "8–3",
+   "result": "Final",
+   "recap": "Your recap text",
+   "box_score": "YOUR BOX SCORE URL"
+4. The generated game page can then be updated with the same information.
+
+HOW TO PUBLISH
+1. Unzip this package.
+2. Open GitHub Desktop.
+3. Click Repository > Show in Finder.
+4. Copy every file and folder from this package into the repository folder.
+5. Choose Replace.
+6. Commit with:
+   Build GameCenter pages
+7. Push origin.
+8. Cloudflare deploys automatically.
