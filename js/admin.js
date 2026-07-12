@@ -637,6 +637,371 @@
     showToast(`${applied} player records imported.`);
   });
 
+
+  // ------------------------------------------------------------
+  // Version 14: Roster Import Wizard
+  // ------------------------------------------------------------
+  const rosterImportState = {
+    headers: [],
+    rows: [],
+    mapping: {},
+    normalizedPlayers: []
+  };
+
+  const rosterFields = [
+    { key: 'number', label: 'Jersey Number', aliases: ['jersey_number','jersey','number','#','no','no_'] },
+    { key: 'name', label: 'Full Name', required: true, aliases: ['full_name','player_name','name','player'] },
+    { key: 'position', label: 'Position', aliases: ['position','pos'] },
+    { key: 'college', label: 'College', aliases: ['college','university','school'] },
+    { key: 'college_logo', label: 'College Logo Filename', aliases: ['college_logo_filename','college_logo','college_logo_file'] },
+    { key: 'hometown', label: 'Hometown', aliases: ['hometown','home_town','city_state'] },
+    { key: 'high_school', label: 'High School', aliases: ['high_school','highschool','hs'] },
+    { key: 'height', label: 'Height', aliases: ['height','ht'] },
+    { key: 'weight', label: 'Weight', aliases: ['weight','wt'] },
+    { key: 'bats', label: 'Bats', aliases: ['bats','bat'] },
+    { key: 'throws', label: 'Throws', aliases: ['throws','throw'] },
+    { key: 'class', label: 'Class', aliases: ['class','year','academic_year'] },
+    { key: 'major', label: 'Major', aliases: ['major','academic_major'] },
+    { key: 'photo', label: 'Headshot Filename', aliases: ['headshot_filename','headshot','photo','player_photo'] },
+    { key: 'action_photo', label: 'Action Photo Filename', aliases: ['action_photo_filename','action_photo'] },
+    { key: 'bio', label: 'Biography', aliases: ['biography','bio','player_bio'] },
+    { key: 'why_tribe', label: 'Why I Chose the Tribe', aliases: ['why_i_chose_the_tribe','why_tribe'] },
+    { key: 'coach_comments', label: 'Coach Comments', aliases: ['coach_comments','coachs_comments','coach_comment'] },
+    { key: 'development_goals', label: 'Development Goals', aliases: ['development_goals','goals'] },
+    { key: 'awards', label: 'Awards and Honors', aliases: ['awards_and_honors','awards','honors'] },
+    { key: 'gamechanger_name', label: 'GameChanger Name', aliases: ['gamechanger_name','game_changer_name','gc_name'] },
+    { key: 'instagram', label: 'Instagram', aliases: ['instagram','ig'] },
+    { key: 'x', label: 'X', aliases: ['x','twitter'] },
+    { key: 'favorite_mlb_player', label: 'Favorite MLB Player', aliases: ['favorite_mlb_player'] },
+    { key: 'favorite_team', label: 'Favorite Team', aliases: ['favorite_team'] },
+    { key: 'favorite_baseball_memory', label: 'Favorite Baseball Memory', aliases: ['favorite_baseball_memory'] },
+    { key: 'walkup_song', label: 'Walk-Up Song', aliases: ['walk_up_song','walkup_song','walk_up'] },
+    { key: 'favorite_food', label: 'Favorite Food', aliases: ['favorite_food'] },
+    { key: 'hidden_talent', label: 'Hidden Talent', aliases: ['hidden_talent'] }
+  ];
+
+  function normalizeRosterHeader(value) {
+    return String(value || '')
+      .trim()
+      .toLowerCase()
+      .replace(/[’']/g, '')
+      .replace(/[^a-z0-9#]+/g, '_')
+      .replace(/^_|_$/g, '');
+  }
+
+  function rosterSlug(value) {
+    return String(value || '')
+      .toLowerCase().trim()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '');
+  }
+
+  function splitRosterItems(value) {
+    return String(value || '')
+      .split(/[;\n]+/)
+      .map(v => v.trim())
+      .filter(Boolean);
+  }
+
+  function assetPath(value, folder) {
+    const text = String(value || '').trim();
+    if (!text) return '';
+    if (text.includes('/')) return text;
+    return `${folder}/${text}`;
+  }
+
+  function parseSimpleCsv(text) {
+    const output = [];
+    let row = [];
+    let cell = '';
+    let quoted = false;
+    for (let i = 0; i < text.length; i++) {
+      const ch = text[i];
+      const next = text[i + 1];
+      if (ch === '"' && quoted && next === '"') {
+        cell += '"';
+        i++;
+      } else if (ch === '"') {
+        quoted = !quoted;
+      } else if (ch === ',' && !quoted) {
+        row.push(cell);
+        cell = '';
+      } else if ((ch === '\n' || ch === '\r') && !quoted) {
+        if (ch === '\r' && next === '\n') i++;
+        row.push(cell);
+        if (row.some(v => String(v).trim())) output.push(row);
+        row = [];
+        cell = '';
+      } else {
+        cell += ch;
+      }
+    }
+    if (cell || row.length) {
+      row.push(cell);
+      if (row.some(v => String(v).trim())) output.push(row);
+    }
+    return output;
+  }
+
+  async function readRosterFile(file) {
+    const extension = file.name.split('.').pop().toLowerCase();
+    if (extension === 'csv') {
+      return parseSimpleCsv(await file.text());
+    }
+    if (!window.XLSX) {
+      throw new Error('Excel reader could not load. Save the Players sheet as CSV and try again.');
+    }
+    const buffer = await file.arrayBuffer();
+    const workbook = XLSX.read(buffer, { type: 'array' });
+    const sheetName = workbook.SheetNames.includes('Players') ? 'Players' : workbook.SheetNames[0];
+    return XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], {
+      header: 1,
+      defval: '',
+      raw: false
+    }).filter(row => row.some(value => String(value).trim()));
+  }
+
+  function autoMapRosterColumns() {
+    const normalizedHeaders = rosterImportState.headers.map(normalizeRosterHeader);
+    rosterImportState.mapping = {};
+    rosterFields.forEach(field => {
+      const aliases = [normalizeRosterHeader(field.label), ...field.aliases.map(normalizeRosterHeader)];
+      const index = normalizedHeaders.findIndex(header => aliases.includes(header));
+      rosterImportState.mapping[field.key] = index >= 0 ? index : '';
+    });
+  }
+
+  function renderRosterMapping() {
+    const grid = document.getElementById('rosterMappingGrid');
+    if (!grid) return;
+    const options = rosterImportState.headers.map((header, index) =>
+      `<option value="${index}">${header || `Column ${index + 1}`}</option>`
+    ).join('');
+
+    grid.innerHTML = rosterFields.map(field => `
+      <label>
+        ${field.label}${field.required ? ' *' : ''}
+        <select data-roster-field="${field.key}">
+          <option value="">Not included</option>
+          ${options}
+        </select>
+      </label>
+    `).join('');
+
+    grid.querySelectorAll('select').forEach(select => {
+      const current = rosterImportState.mapping[select.dataset.rosterField];
+      select.value = current === '' ? '' : String(current);
+      select.addEventListener('change', () => {
+        rosterImportState.mapping[select.dataset.rosterField] =
+          select.value === '' ? '' : Number(select.value);
+      });
+    });
+  }
+
+  function rowValue(row, key) {
+    const index = rosterImportState.mapping[key];
+    return index === '' || index === undefined ? '' : String(row[index] ?? '').trim();
+  }
+
+  function buildImportedPlayer(row, rowNumber) {
+    const name = rowValue(row, 'name');
+    const errors = [];
+    const warnings = [];
+    if (!name) errors.push('Missing full name');
+
+    const number = rowValue(row, 'number');
+    const position = rowValue(row, 'position');
+    const college = rowValue(row, 'college');
+    if (!number) warnings.push('No jersey number');
+    if (!position) warnings.push('No position');
+    if (!college) warnings.push('No college');
+
+    const player = {
+      number,
+      name,
+      slug: rosterSlug(name),
+      position,
+      college,
+      college_logo: assetPath(rowValue(row, 'college_logo'), 'images/colleges'),
+      hometown: rowValue(row, 'hometown'),
+      high_school: rowValue(row, 'high_school'),
+      height: rowValue(row, 'height'),
+      weight: rowValue(row, 'weight'),
+      bats: rowValue(row, 'bats'),
+      throws: rowValue(row, 'throws'),
+      class: rowValue(row, 'class'),
+      major: rowValue(row, 'major'),
+      photo: assetPath(rowValue(row, 'photo'), 'images/players'),
+      action_photo: assetPath(rowValue(row, 'action_photo'), 'images/players'),
+      bio: rowValue(row, 'bio'),
+      why_tribe: rowValue(row, 'why_tribe'),
+      coach_comments: rowValue(row, 'coach_comments'),
+      development_goals: splitRosterItems(rowValue(row, 'development_goals')),
+      awards: splitRosterItems(rowValue(row, 'awards')),
+      gamechanger_name: rowValue(row, 'gamechanger_name') || name,
+      gamechanger_player_id: '',
+      social: {
+        instagram: rowValue(row, 'instagram'),
+        x: rowValue(row, 'x')
+      },
+      qa: {
+        favorite_mlb_player: rowValue(row, 'favorite_mlb_player'),
+        favorite_team: rowValue(row, 'favorite_team'),
+        favorite_baseball_memory: rowValue(row, 'favorite_baseball_memory'),
+        walkup_song: rowValue(row, 'walkup_song'),
+        favorite_food: rowValue(row, 'favorite_food'),
+        hidden_talent: rowValue(row, 'hidden_talent')
+      },
+      _import: { rowNumber, errors, warnings }
+    };
+    return player;
+  }
+
+  function buildNormalizedRoster() {
+    rosterImportState.normalizedPlayers = rosterImportState.rows
+      .map((row, index) => buildImportedPlayer(row, index + 2))
+      .filter(player => player.name || player._import.errors.length);
+  }
+
+  function renderRosterReview() {
+    buildNormalizedRoster();
+    const body = document.getElementById('rosterReviewBody');
+    const valid = rosterImportState.normalizedPlayers.filter(p => !p._import.errors.length);
+    const errors = rosterImportState.normalizedPlayers.filter(p => p._import.errors.length);
+    const warnings = rosterImportState.normalizedPlayers.reduce((sum, p) => sum + p._import.warnings.length, 0);
+
+    document.getElementById('rosterReviewSummary').textContent =
+      `${valid.length} valid players · ${errors.length} rows with errors · ${warnings} warnings`;
+
+    body.innerHTML = rosterImportState.normalizedPlayers.map(player => {
+      const hasError = player._import.errors.length > 0;
+      const hasWarning = player._import.warnings.length > 0;
+      const status = hasError ? 'Error' : hasWarning ? 'Review' : 'Ready';
+      const title = [...player._import.errors, ...player._import.warnings].join('; ');
+      return `
+        <tr class="${hasError ? 'import-error-row' : hasWarning ? 'import-warning-row' : ''}">
+          <td><span class="roster-import-status ${status.toLowerCase()}" title="${title}">${status}</span></td>
+          <td>${player.number || '—'}</td>
+          <td><strong>${player.name || 'Missing name'}</strong></td>
+          <td>${player.position || '—'}</td>
+          <td>${player.college || '—'}</td>
+          <td>${player.hometown || '—'}</td>
+          <td>${player.class || '—'}</td>
+          <td>${player.photo ? 'Yes' : 'No'}</td>
+        </tr>`;
+    }).join('');
+  }
+
+  function showRosterImportStep(step) {
+    document.querySelectorAll('.import-step').forEach(section => {
+      section.classList.toggle('active', Number(section.dataset.importStep) === step);
+    });
+    document.querySelectorAll('[data-import-step-indicator]').forEach(indicator => {
+      const value = Number(indicator.dataset.importStepIndicator);
+      indicator.classList.toggle('active', value === step);
+      indicator.classList.toggle('complete', value < step);
+    });
+  }
+
+  document.getElementById('rosterImportFile')?.addEventListener('change', async event => {
+    const file = event.target.files?.[0];
+    const summary = document.getElementById('rosterImportFileSummary');
+    const next = document.getElementById('rosterImportNext1');
+    if (!file) return;
+
+    try {
+      const matrix = await readRosterFile(file);
+      if (matrix.length < 2) throw new Error('The roster file has no player rows.');
+      rosterImportState.headers = matrix[0].map(value => String(value).trim());
+      rosterImportState.rows = matrix.slice(1).filter(row => row.some(value => String(value).trim()));
+      autoMapRosterColumns();
+      summary.textContent = `${file.name} · ${rosterImportState.rows.length} player rows detected`;
+      next.disabled = false;
+    } catch (error) {
+      summary.textContent = error.message;
+      next.disabled = true;
+    }
+  });
+
+  document.getElementById('rosterImportNext1')?.addEventListener('click', () => {
+    renderRosterMapping();
+    showRosterImportStep(2);
+  });
+
+  document.getElementById('rosterImportNext2')?.addEventListener('click', () => {
+    if (rosterImportState.mapping.name === '' || rosterImportState.mapping.name === undefined) {
+      showToast('Map the Full Name column before continuing.');
+      return;
+    }
+    renderRosterReview();
+    showRosterImportStep(3);
+  });
+
+  document.querySelectorAll('[data-roster-back]').forEach(button => {
+    button.addEventListener('click', () => showRosterImportStep(Number(button.dataset.rosterBack)));
+  });
+
+  document.getElementById('rosterImportApply')?.addEventListener('click', () => {
+    const validPlayers = rosterImportState.normalizedPlayers
+      .filter(player => !player._import.errors.length)
+      .map(player => {
+        const clean = { ...player };
+        delete clean._import;
+        return clean;
+      });
+
+    if (!validPlayers.length) {
+      showToast('No valid players are available to import.');
+      return;
+    }
+
+    const replace = document.getElementById('replaceRosterMode').checked;
+    if (replace) {
+      state.roster = validPlayers;
+    } else {
+      const bySlug = new Map(state.roster.map(player => [player.slug, player]));
+      validPlayers.forEach(player => bySlug.set(player.slug, { ...bySlug.get(player.slug), ...player }));
+      state.roster = Array.from(bySlug.values());
+    }
+
+    if (!state.playerStats) state.playerStats = {};
+    validPlayers.forEach(player => {
+      if (!state.playerStats[player.slug]) {
+        state.playerStats[player.slug] = {
+          type: String(player.position || '').toUpperCase().includes('P') ? 'pitcher' : 'hitter',
+          season: {
+            games: 0, avg: '.000', obp: '.000', slg: '.000', ops: '.000',
+            hits: 0, hr: 0, rbi: 0, runs: 0, sb: 0,
+            appearances: 0, innings: '0.0', era: '0.00', whip: '0.00',
+            strikeouts: 0, walks: 0, wins: 0, saves: 0
+          },
+          game_log: [],
+          highlights: []
+        };
+      }
+    });
+
+    saveLocal('roster');
+    localStorage.setItem('tribe-admin-playerStats', JSON.stringify(state.playerStats));
+    renderAll();
+    document.getElementById('rosterImportCompleteSummary').textContent =
+      `${validPlayers.length} players were imported. Export roster.json and player-stats.json to publish them.`;
+    showRosterImportStep(4);
+    showToast('Roster import applied.');
+  });
+
+  document.getElementById('rosterImportReset')?.addEventListener('click', () => {
+    rosterImportState.headers = [];
+    rosterImportState.rows = [];
+    rosterImportState.mapping = {};
+    rosterImportState.normalizedPlayers = [];
+    document.getElementById('rosterImportFile').value = '';
+    document.getElementById('rosterImportFileSummary').textContent = 'No roster file selected.';
+    document.getElementById('rosterImportNext1').disabled = true;
+    showRosterImportStep(1);
+  });
+
+
   function renderAll() {
     renderDashboard();
     renderPlayerList();

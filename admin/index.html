@@ -25,6 +25,7 @@
   <aside class="admin-sidebar">
     <button class="admin-nav active" data-panel="dashboard">Dashboard</button>
     <button class="admin-nav" data-panel="players">Players</button>
+    <button class="admin-nav" data-panel="roster-import">Roster Import</button>
     <button class="admin-nav" data-panel="games">Games</button>
     <button class="admin-nav" data-panel="news">News</button>
     <button class="admin-nav" data-panel="sponsors">Sponsors</button>
@@ -120,6 +121,95 @@
           </div>
         </form>
       </div>
+    </section>
+
+
+    <section class="admin-panel" id="panel-roster-import">
+      <div class="admin-page-heading">
+        <div>
+          <p class="section-kicker">Version 14</p>
+          <h1>Roster Import Wizard</h1>
+        </div>
+        <a class="button button-secondary" href="../Colorado-Tribe-Roster-Import-Template.xlsx" download>
+          Download Excel Template
+        </a>
+      </div>
+
+      <div class="import-wizard-steps">
+        <div class="active" data-import-step-indicator="1"><strong>1</strong><span>Upload</span></div>
+        <div data-import-step-indicator="2"><strong>2</strong><span>Map Columns</span></div>
+        <div data-import-step-indicator="3"><strong>3</strong><span>Review</span></div>
+        <div data-import-step-indicator="4"><strong>4</strong><span>Apply</span></div>
+      </div>
+
+      <section class="import-step active" data-import-step="1">
+        <article class="admin-card">
+          <h2>Upload Your Roster</h2>
+          <p>Upload the completed Colorado Tribe Excel template or a CSV file with one player per row.</p>
+          <label class="roster-import-dropzone" for="rosterImportFile">
+            <strong>Choose roster file</strong>
+            <span>.xlsx, .xls, or .csv</span>
+            <input id="rosterImportFile" type="file" accept=".xlsx,.xls,.csv,text/csv">
+          </label>
+          <div id="rosterImportFileSummary" class="gc-import-summary">No roster file selected.</div>
+          <button class="button button-primary" id="rosterImportNext1" type="button" disabled>Continue to Column Mapping</button>
+        </article>
+      </section>
+
+      <section class="import-step" data-import-step="2">
+        <article class="admin-card">
+          <h2>Confirm Column Mapping</h2>
+          <p>The wizard automatically recognizes common roster headings. Review the selections before continuing.</p>
+          <div class="roster-mapping-grid" id="rosterMappingGrid"></div>
+          <div class="admin-form-actions">
+            <button class="button button-outline" data-roster-back="1" type="button">Back</button>
+            <button class="button button-primary" id="rosterImportNext2" type="button">Review Players</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="import-step" data-import-step="3">
+        <article class="admin-card">
+          <div class="roster-review-heading">
+            <div>
+              <h2>Review Imported Players</h2>
+              <p id="rosterReviewSummary"></p>
+            </div>
+            <label class="admin-checkbox">
+              <input id="replaceRosterMode" type="checkbox" checked>
+              Replace the current roster
+            </label>
+          </div>
+          <div class="roster-review-table-wrap">
+            <table class="roster-review-table">
+              <thead>
+                <tr>
+                  <th>Status</th><th>#</th><th>Name</th><th>Position</th><th>College</th>
+                  <th>Hometown</th><th>Class</th><th>Photo</th>
+                </tr>
+              </thead>
+              <tbody id="rosterReviewBody"></tbody>
+            </table>
+          </div>
+          <div class="admin-form-actions">
+            <button class="button button-outline" data-roster-back="2" type="button">Back</button>
+            <button class="button button-primary" id="rosterImportApply" type="button">Apply Roster Import</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="import-step" data-import-step="4">
+        <article class="admin-card roster-import-complete">
+          <div class="roster-import-check">✓</div>
+          <h2>Roster Import Complete</h2>
+          <p id="rosterImportCompleteSummary"></p>
+          <div class="admin-form-actions">
+            <button class="button button-secondary" data-panel-jump="players" type="button">Review Players</button>
+            <button class="button button-primary" data-panel-jump="export" type="button">Export Website Files</button>
+            <button class="button button-outline" id="rosterImportReset" type="button">Import Another File</button>
+          </div>
+        </article>
+      </section>
     </section>
 
     <section class="admin-panel" id="panel-games">
@@ -321,6 +411,7 @@
 </main>
 
 <div class="setup-toast" id="adminToast" role="status"></div>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <script src="../js/admin.js"></script>
 </body>
 </html>

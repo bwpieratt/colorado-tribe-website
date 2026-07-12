@@ -1,0 +1,39 @@
+COLORADO TRIBE WEBSITE VERSION 14 — ROSTER IMPORT WIZARD
+
+WHAT'S NEW
+- Downloadable Excel roster template
+- Four-step roster import wizard inside Admin
+- Excel and CSV file support
+- Automatic column recognition
+- Manual column mapping
+- Player validation and warnings
+- Replace-roster or merge-roster modes
+- Automatic profile slugs and image paths
+- Automatic player statistics placeholders
+- Export-ready roster.json and player-stats.json
+
+HOW TO USE
+1. Download Colorado-Tribe-Roster-Import-Template.xlsx.
+2. Enter one player per row on the Players tab.
+3. Save the workbook.
+4. Open /admin/ and select Roster Import.
+5. Upload the Excel workbook or a CSV.
+6. Confirm the column mapping.
+7. Review warnings and errors.
+8. Apply the import.
+9. Open Export.
+10. Download roster.json and player-stats.json.
+11. Replace those files in the website data folder.
+12. Commit and push through GitHub Desktop.
+
+PHOTOS
+The wizard stores filenames as:
+images/players/filename.jpg
+images/colleges/filename.png
+
+You still need to copy the actual image files into those website folders.
+
+IMPORTANT
+The Excel importer loads the SheetJS browser library from a public CDN.
+If it cannot load, save the Players sheet as CSV and import the CSV instead.
+The wizard runs entirely in the browser and does not upload player data to a server.

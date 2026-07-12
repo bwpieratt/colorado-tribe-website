@@ -3056,3 +3056,143 @@ h1 {
   .gdc-starters{grid-template-columns:1fr;}
   .gdc-potg{grid-template-columns:1fr;}
 }
+
+
+
+/* =========================
+   Version 14 Roster Import Wizard
+   ========================= */
+.import-wizard-steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-bottom:22px;
+}
+.import-wizard-steps>div{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  color:var(--muted);
+  background:#fff;
+}
+.import-wizard-steps strong{
+  width:30px;height:30px;display:grid;place-items:center;
+  border-radius:50%;color:var(--navy);background:#eaf1f6;
+}
+.import-wizard-steps .active{color:var(--navy);border-color:var(--columbia);background:#eef8ff;}
+.import-wizard-steps .active strong{color:var(--navy);background:var(--columbia);}
+.import-wizard-steps .complete strong{color:#fff;background:#2e7d4f;}
+.import-step{display:none;}
+.import-step.active{display:block;}
+.roster-import-dropzone{
+  min-height:190px;
+  display:grid!important;
+  place-content:center;
+  gap:7px;
+  margin:20px 0;
+  border:2px dashed #a9bcc9;
+  border-radius:16px;
+  color:var(--navy)!important;
+  background:#f7fbfd;
+  text-align:center;
+  cursor:pointer;
+}
+.roster-import-dropzone strong{font-size:1.25rem;}
+.roster-import-dropzone span{color:var(--muted);font-size:.8rem;}
+.roster-import-dropzone input{display:none;}
+.roster-mapping-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin:20px 0;
+}
+.roster-mapping-grid label{
+  display:grid;
+  gap:6px;
+  color:var(--navy);
+  font-size:.67rem;
+  font-weight:900;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+.roster-mapping-grid select{
+  min-height:42px;
+  padding:9px 10px;
+  border:1px solid #cfdbe4;
+  border-radius:8px;
+  background:#fff;
+  font:inherit;
+  text-transform:none;
+}
+.roster-review-heading{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:20px;
+}
+.roster-review-table-wrap{
+  overflow:auto;
+  max-height:560px;
+  margin:18px 0;
+  border:1px solid var(--line);
+  border-radius:12px;
+}
+.roster-review-table{
+  width:100%;
+  min-width:900px;
+  border-collapse:collapse;
+}
+.roster-review-table th,.roster-review-table td{
+  padding:12px;
+  border-bottom:1px solid var(--line);
+  text-align:left;
+}
+.roster-review-table th{
+  position:sticky;
+  top:0;
+  z-index:1;
+  color:#fff;
+  background:var(--navy);
+  font-size:.63rem;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.import-error-row{background:#fff2f3;}
+.import-warning-row{background:#fff9e8;}
+.roster-import-status{
+  display:inline-flex;
+  padding:5px 8px;
+  border-radius:999px;
+  font-size:.58rem;
+  font-weight:900;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.roster-import-status.ready{color:#155d32;background:#dff4e7;}
+.roster-import-status.review{color:#775600;background:#fff0bd;}
+.roster-import-status.error{color:#8a2b31;background:#f8e1e3;}
+.roster-import-complete{text-align:center;}
+.roster-import-check{
+  width:74px;height:74px;
+  display:grid;
+  place-items:center;
+  margin:0 auto 16px;
+  border-radius:50%;
+  color:#fff;
+  background:#2e7d4f;
+  font-size:2.2rem;
+  font-weight:950;
+}
+.roster-import-complete .admin-form-actions{justify-content:center;}
+
+@media(max-width:900px){
+  .roster-mapping-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:650px){
+  .import-wizard-steps{grid-template-columns:1fr 1fr;}
+  .roster-mapping-grid{grid-template-columns:1fr;}
+  .roster-review-heading{flex-direction:column;}
+}
