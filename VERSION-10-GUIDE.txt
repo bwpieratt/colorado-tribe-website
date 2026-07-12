@@ -1,0 +1,27 @@
+COLORADO TRIBE WEBSITE VERSION 10 — ADMIN PROTOTYPE
+
+WHAT'S NEW
+- Browser-based admin dashboard
+- Edit players, games, news, sponsors, and team stats
+- Local browser saving with localStorage
+- Export updated JSON files
+- Mobile-friendly admin layout
+
+IMPORTANT
+This is a static admin prototype. It does not securely log users in and it cannot publish directly to the live website.
+Changes are saved only in the browser until you export the JSON files.
+
+HOW TO USE
+1. Visit /admin/index.html on the website.
+2. Edit players, games, news, sponsors, or stats.
+3. Open Export.
+4. Download the updated JSON files.
+5. Replace the matching files in your local website data folder.
+6. Commit and push through GitHub Desktop.
+
+NEXT PHASE
+A true password-protected admin dashboard requires:
+- Authentication
+- A database or content-management service
+- Secure server-side save actions
+- Image upload storage

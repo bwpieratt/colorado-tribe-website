@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07192d">
+<meta name="robots" content="noindex,nofollow">
+<title>Colorado Tribe Admin</title>
+<link rel="stylesheet" href="../css/tribe.css">
+</head>
+<body class="admin-body">
+
+<header class="admin-header">
+  <a class="admin-brand" href="../index.html">
+    <img src="../images/logos/tribe-logo.png" alt="Colorado Tribe Baseball">
+    <div>
+      <strong>Colorado Tribe Admin</strong>
+      <span>Content Management Workspace</span>
+    </div>
+  </a>
+  <a class="button button-outline" href="../index.html">View Website</a>
+</header>
+
+<main class="admin-shell">
+  <aside class="admin-sidebar">
+    <button class="admin-nav active" data-panel="dashboard">Dashboard</button>
+    <button class="admin-nav" data-panel="players">Players</button>
+    <button class="admin-nav" data-panel="games">Games</button>
+    <button class="admin-nav" data-panel="news">News</button>
+    <button class="admin-nav" data-panel="sponsors">Sponsors</button>
+    <button class="admin-nav" data-panel="stats">Stats</button>
+    <button class="admin-nav" data-panel="export">Export</button>
+  </aside>
+
+  <section class="admin-content">
+    <div class="admin-alert">
+      <strong>Version 10 Admin Prototype</strong>
+      <p>This dashboard edits data in your browser and exports updated JSON files. It does not publish automatically yet.</p>
+    </div>
+
+    <section class="admin-panel active" id="panel-dashboard">
+      <div class="admin-page-heading">
+        <div>
+          <p class="section-kicker">Overview</p>
+          <h1>Dashboard</h1>
+        </div>
+      </div>
+
+      <div class="admin-metric-grid">
+        <article><span>Players</span><strong id="metricPlayers">0</strong></article>
+        <article><span>Games</span><strong id="metricGames">0</strong></article>
+        <article><span>News Articles</span><strong id="metricNews">0</strong></article>
+        <article><span>Sponsors</span><strong id="metricSponsors">0</strong></article>
+      </div>
+
+      <div class="admin-dashboard-grid">
+        <article class="admin-card">
+          <h2>Quick Actions</h2>
+          <div class="admin-quick-actions">
+            <button data-panel-jump="players">Add Player</button>
+            <button data-panel-jump="games">Update Game</button>
+            <button data-panel-jump="news">Create News</button>
+            <button data-panel-jump="sponsors">Add Sponsor</button>
+          </div>
+        </article>
+
+        <article class="admin-card">
+          <h2>Publishing Workflow</h2>
+          <ol>
+            <li>Edit content in this dashboard.</li>
+            <li>Export the updated JSON files.</li>
+            <li>Replace the matching files in your repository.</li>
+            <li>Commit and push with GitHub Desktop.</li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section class="admin-panel" id="panel-players">
+      <div class="admin-page-heading">
+        <div><p class="section-kicker">Roster</p><h1>Players</h1></div>
+        <button class="button button-primary" id="addPlayerButton">Add Player</button>
+      </div>
+      <div class="admin-editor-layout">
+        <div class="admin-list" id="playerList"></div>
+        <form class="admin-form" id="playerForm">
+          <input type="hidden" id="playerIndex">
+          <label>Jersey Number<input id="playerNumber"></label>
+          <label>Full Name<input id="playerName" required></label>
+          <label>Position<input id="playerPosition"></label>
+          <label>College<input id="playerCollege"></label>
+          <label>Hometown<input id="playerHometown"></label>
+          <div class="admin-form-row">
+            <label>Height<input id="playerHeight"></label>
+            <label>Weight<input id="playerWeight"></label>
+          </div>
+          <div class="admin-form-row">
+            <label>Bats<input id="playerBats"></label>
+            <label>Throws<input id="playerThrows"></label>
+          </div>
+          <label>Class<input id="playerClass"></label>
+          <label>Major<input id="playerMajor"></label>
+          <label>Photo Path<input id="playerPhoto" placeholder="images/players/name.jpg"></label>
+          <label>Profile Slug<input id="playerSlug" placeholder="john-smith"></label>
+          <div class="admin-form-actions">
+            <button class="button button-primary" type="submit">Save Player</button>
+            <button class="button button-outline danger" type="button" id="deletePlayerButton">Delete</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="admin-panel" id="panel-games">
+      <div class="admin-page-heading">
+        <div><p class="section-kicker">GameCenter</p><h1>Games</h1></div>
+      </div>
+      <div class="admin-editor-layout">
+        <div class="admin-list" id="gameList"></div>
+        <form class="admin-form" id="gameForm">
+          <input type="hidden" id="gameIndex">
+          <label>Opponent<input id="gameOpponent" readonly></label>
+          <label>Date<input id="gameDate" readonly></label>
+          <label>Final Score<input id="gameScore" placeholder="8–3"></label>
+          <label>Status<input id="gameResult" placeholder="Final"></label>
+          <label>GameChanger URL<input id="gameGameChanger"></label>
+          <label>Box Score URL<input id="gameBoxScore"></label>
+          <label>Recap<textarea id="gameRecap" rows="7"></textarea></label>
+          <button class="button button-primary" type="submit">Save Game</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="admin-panel" id="panel-news">
+      <div class="admin-page-heading">
+        <div><p class="section-kicker">Content</p><h1>News</h1></div>
+        <button class="button button-primary" id="addNewsButton">Add Article</button>
+      </div>
+      <div class="admin-editor-layout">
+        <div class="admin-list" id="newsList"></div>
+        <form class="admin-form" id="newsForm">
+          <input type="hidden" id="newsIndex">
+          <label>Title<input id="newsTitle" required></label>
+          <label>Slug<input id="newsSlug"></label>
+          <label>Date<input id="newsDate" type="date"></label>
+          <label>Category<input id="newsCategory"></label>
+          <label>Summary<textarea id="newsSummary" rows="4"></textarea></label>
+          <label>Image Path<input id="newsImage"></label>
+          <label class="admin-checkbox"><input id="newsFeatured" type="checkbox"> Featured Article</label>
+          <label>Article Body<textarea id="newsBody" rows="10" placeholder="Separate paragraphs with a blank line."></textarea></label>
+          <div class="admin-form-actions">
+            <button class="button button-primary" type="submit">Save Article</button>
+            <button class="button button-outline danger" type="button" id="deleteNewsButton">Delete</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="admin-panel" id="panel-sponsors">
+      <div class="admin-page-heading">
+        <div><p class="section-kicker">Partners</p><h1>Sponsors</h1></div>
+        <button class="button button-primary" id="addSponsorButton">Add Sponsor</button>
+      </div>
+      <div class="admin-editor-layout">
+        <div class="admin-list" id="sponsorList"></div>
+        <form class="admin-form" id="sponsorForm">
+          <input type="hidden" id="sponsorIndex">
+          <label>Name<input id="sponsorName" required></label>
+          <label>Tier<input id="sponsorTier"></label>
+          <label>Logo Path<input id="sponsorLogo"></label>
+          <label>Website<input id="sponsorWebsite"></label>
+          <label>Description<textarea id="sponsorDescription" rows="6"></textarea></label>
+          <div class="admin-form-actions">
+            <button class="button button-primary" type="submit">Save Sponsor</button>
+            <button class="button button-outline danger" type="button" id="deleteSponsorButton">Delete</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="admin-panel" id="panel-stats">
+      <div class="admin-page-heading">
+        <div><p class="section-kicker">Season</p><h1>Team Stats</h1></div>
+      </div>
+      <form class="admin-form admin-form-wide" id="statsForm">
+        <div class="admin-form-row">
+          <label>Games<input id="statsGames" type="number"></label>
+          <label>Wins<input id="statsWins" type="number"></label>
+          <label>Losses<input id="statsLosses" type="number"></label>
+        </div>
+        <div class="admin-form-row">
+          <label>Runs Scored<input id="statsRunsScored" type="number"></label>
+          <label>Runs Allowed<input id="statsRunsAllowed" type="number"></label>
+        </div>
+        <button class="button button-primary" type="submit">Save Team Stats</button>
+      </form>
+    </section>
+
+    <section class="admin-panel" id="panel-export">
+      <div class="admin-page-heading">
+        <div><p class="section-kicker">Publish</p><h1>Export Files</h1></div>
+      </div>
+
+      <div class="admin-export-grid">
+        <button data-export="roster">Download roster.json</button>
+        <button data-export="games">Download games.json</button>
+        <button data-export="news">Download news.json</button>
+        <button data-export="sponsors">Download sponsors.json</button>
+        <button data-export="stats">Download stats.json</button>
+        <button id="downloadAllButton">Download All JSON Files</button>
+      </div>
+
+      <article class="admin-card">
+        <h2>Where the files go</h2>
+        <p>Replace the matching files inside your website's <code>data</code> folder, then commit and push with GitHub Desktop.</p>
+      </article>
+    </section>
+  </section>
+</main>
+
+<div class="setup-toast" id="adminToast" role="status"></div>
+<script src="../js/admin.js"></script>
+</body>
+</html>
