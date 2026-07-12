@@ -12,7 +12,27 @@
     "throws": "R",
     "class": "Sophomore",
     "major": "Major",
-    "photo": ""
+    "photo": "",
+    "college_logo": "",
+    "high_school": "",
+    "action_photo": "",
+    "bio": "",
+    "why_tribe": "",
+    "coach_comments": "",
+    "development_goals": [],
+    "awards": [],
+    "social": {
+      "instagram": "",
+      "x": ""
+    },
+    "qa": {
+      "favorite_mlb_player": "",
+      "favorite_team": "",
+      "favorite_baseball_memory": "",
+      "walkup_song": "",
+      "favorite_food": "",
+      "hidden_talent": ""
+    }
   },
   {
     "number": "2",
@@ -27,7 +47,27 @@
     "throws": "R",
     "class": "Junior",
     "major": "Major",
-    "photo": ""
+    "photo": "",
+    "college_logo": "",
+    "high_school": "",
+    "action_photo": "",
+    "bio": "",
+    "why_tribe": "",
+    "coach_comments": "",
+    "development_goals": [],
+    "awards": [],
+    "social": {
+      "instagram": "",
+      "x": ""
+    },
+    "qa": {
+      "favorite_mlb_player": "",
+      "favorite_team": "",
+      "favorite_baseball_memory": "",
+      "walkup_song": "",
+      "favorite_food": "",
+      "hidden_talent": ""
+    }
   },
   {
     "number": "3",
@@ -42,7 +82,27 @@
     "throws": "R",
     "class": "Sophomore",
     "major": "Major",
-    "photo": ""
+    "photo": "",
+    "college_logo": "",
+    "high_school": "",
+    "action_photo": "",
+    "bio": "",
+    "why_tribe": "",
+    "coach_comments": "",
+    "development_goals": [],
+    "awards": [],
+    "social": {
+      "instagram": "",
+      "x": ""
+    },
+    "qa": {
+      "favorite_mlb_player": "",
+      "favorite_team": "",
+      "favorite_baseball_memory": "",
+      "walkup_song": "",
+      "favorite_food": "",
+      "hidden_talent": ""
+    }
   },
   {
     "number": "4",
@@ -57,7 +117,27 @@
     "throws": "R",
     "class": "Junior",
     "major": "Major",
-    "photo": ""
+    "photo": "",
+    "college_logo": "",
+    "high_school": "",
+    "action_photo": "",
+    "bio": "",
+    "why_tribe": "",
+    "coach_comments": "",
+    "development_goals": [],
+    "awards": [],
+    "social": {
+      "instagram": "",
+      "x": ""
+    },
+    "qa": {
+      "favorite_mlb_player": "",
+      "favorite_team": "",
+      "favorite_baseball_memory": "",
+      "walkup_song": "",
+      "favorite_food": "",
+      "hidden_talent": ""
+    }
   },
   {
     "number": "5",
@@ -72,7 +152,27 @@
     "throws": "L",
     "class": "Freshman",
     "major": "Major",
-    "photo": ""
+    "photo": "",
+    "college_logo": "",
+    "high_school": "",
+    "action_photo": "",
+    "bio": "",
+    "why_tribe": "",
+    "coach_comments": "",
+    "development_goals": [],
+    "awards": [],
+    "social": {
+      "instagram": "",
+      "x": ""
+    },
+    "qa": {
+      "favorite_mlb_player": "",
+      "favorite_team": "",
+      "favorite_baseball_memory": "",
+      "walkup_song": "",
+      "favorite_food": "",
+      "hidden_talent": ""
+    }
   },
   {
     "number": "6",
@@ -87,6 +187,26 @@
     "throws": "R",
     "class": "Senior",
     "major": "Major",
-    "photo": ""
+    "photo": "",
+    "college_logo": "",
+    "high_school": "",
+    "action_photo": "",
+    "bio": "",
+    "why_tribe": "",
+    "coach_comments": "",
+    "development_goals": [],
+    "awards": [],
+    "social": {
+      "instagram": "",
+      "x": ""
+    },
+    "qa": {
+      "favorite_mlb_player": "",
+      "favorite_team": "",
+      "favorite_baseball_memory": "",
+      "walkup_song": "",
+      "favorite_food": "",
+      "hidden_talent": ""
+    }
   }
 ]

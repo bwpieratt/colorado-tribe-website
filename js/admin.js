@@ -104,6 +104,14 @@
     document.getElementById('playerMajor').value = p.major || '';
     document.getElementById('playerPhoto').value = p.photo || '';
     document.getElementById('playerSlug').value = p.slug || '';
+    document.getElementById('playerCollegeLogo').value = p.college_logo || '';
+    document.getElementById('playerHighSchool').value = p.high_school || '';
+    document.getElementById('playerActionPhoto').value = p.action_photo || '';
+    document.getElementById('playerBio').value = p.bio || '';
+    document.getElementById('playerWhyTribe').value = p.why_tribe || '';
+    document.getElementById('playerCoachComments').value = p.coach_comments || '';
+    document.getElementById('playerDevelopmentGoals').value = (p.development_goals || []).join('\n');
+    document.getElementById('playerAwards').value = (p.awards || []).join('\n');
   }
 
   document.getElementById('addPlayerButton').addEventListener('click', clearPlayerForm);
@@ -125,7 +133,24 @@
       throws: document.getElementById('playerThrows').value.trim(),
       class: document.getElementById('playerClass').value.trim(),
       major: document.getElementById('playerMajor').value.trim(),
-      photo: document.getElementById('playerPhoto').value.trim()
+      photo: document.getElementById('playerPhoto').value.trim(),
+      college_logo: document.getElementById('playerCollegeLogo').value.trim(),
+      high_school: document.getElementById('playerHighSchool').value.trim(),
+      action_photo: document.getElementById('playerActionPhoto').value.trim(),
+      bio: document.getElementById('playerBio').value.trim(),
+      why_tribe: document.getElementById('playerWhyTribe').value.trim(),
+      coach_comments: document.getElementById('playerCoachComments').value.trim(),
+      development_goals: document.getElementById('playerDevelopmentGoals').value.split(/\n+/).map(v => v.trim()).filter(Boolean),
+      awards: document.getElementById('playerAwards').value.split(/\n+/).map(v => v.trim()).filter(Boolean),
+      social: { instagram: '', x: '' },
+      qa: {
+        favorite_mlb_player: '',
+        favorite_team: '',
+        favorite_baseball_memory: '',
+        walkup_song: '',
+        favorite_food: '',
+        hidden_talent: ''
+      }
     };
     if (indexValue === '') state.roster.push(player);
     else state.roster[Number(indexValue)] = player;

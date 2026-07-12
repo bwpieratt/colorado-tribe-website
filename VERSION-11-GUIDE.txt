@@ -1,0 +1,46 @@
+COLORADO TRIBE WEBSITE VERSION 11 — PLAYER EXPERIENCE
+
+WHAT'S NEW
+- Professional player profile pages
+- Enhanced roster cards with college marks and stat previews
+- Position, class, and search filters
+- Player statistics file: data/player-stats.json
+- Game logs and player highlights
+- Player biography, Q&A, awards, development goals, Why the Tribe, and coach comments
+- College logo and action photo support
+- Expanded admin player editor
+
+HOW TO ADD PLAYER INFORMATION
+1. Open the Admin page or edit data/roster.json.
+2. Add the player's:
+   bio
+   high_school
+   college_logo
+   action_photo
+   why_tribe
+   coach_comments
+   development_goals
+   awards
+   social links
+   Q&A answers
+3. Add statistics in data/player-stats.json.
+4. Place headshots in images/players.
+5. Place college logos in images/colleges.
+
+PLAYER PHOTOS
+Recommended headshot ratio: vertical 4:5.
+Recommended action photo ratio: horizontal 16:9.
+Use simple file names, such as:
+images/players/john-smith.jpg
+images/players/john-smith-action.jpg
+images/colleges/colorado-state-pueblo.png
+
+HOW TO PUBLISH
+1. Unzip this package.
+2. In GitHub Desktop choose Repository > Show in Finder.
+3. Copy all files and folders into the repository folder.
+4. Choose Replace.
+5. Commit with:
+   Build Version 11 player experience
+6. Push origin.
+7. Cloudflare deploys automatically.
