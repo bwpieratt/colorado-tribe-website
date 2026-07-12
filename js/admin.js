@@ -5,7 +5,9 @@
     games: [],
     news: [],
     sponsors: [],
-    stats: {}
+    stats: {},
+    gamechanger: {},
+    playerStats: {}
   };
 
   const paths = {
@@ -13,7 +15,9 @@
     games: '../data/games.json',
     news: '../data/news.json',
     sponsors: '../data/sponsors.json',
-    stats: '../data/stats.json'
+    stats: '../data/stats.json',
+    gamechanger: '../data/gamechanger.json',
+    playerStats: '../data/player-stats.json'
   };
 
   function showToast(message) {
@@ -104,6 +108,7 @@
     document.getElementById('playerMajor').value = p.major || '';
     document.getElementById('playerPhoto').value = p.photo || '';
     document.getElementById('playerSlug').value = p.slug || '';
+    document.getElementById('playerGameChangerName').value = p.gamechanger_name || p.name || '';
     document.getElementById('playerCollegeLogo').value = p.college_logo || '';
     document.getElementById('playerHighSchool').value = p.high_school || '';
     document.getElementById('playerActionPhoto').value = p.action_photo || '';
@@ -134,6 +139,8 @@
       class: document.getElementById('playerClass').value.trim(),
       major: document.getElementById('playerMajor').value.trim(),
       photo: document.getElementById('playerPhoto').value.trim(),
+      gamechanger_name: document.getElementById('playerGameChangerName').value.trim() || name,
+      gamechanger_player_id: '',
       college_logo: document.getElementById('playerCollegeLogo').value.trim(),
       high_school: document.getElementById('playerHighSchool').value.trim(),
       action_photo: document.getElementById('playerActionPhoto').value.trim(),
@@ -382,6 +389,200 @@
     showToast('All JSON files downloaded.');
   });
 
+
+  let gcImportedRows = [];
+
+  function parseCsv(text) {
+    const rows = [];
+    let row = [];
+    let cell = '';
+    let quoted = false;
+    for (let i = 0; i < text.length; i++) {
+      const ch = text[i];
+      const next = text[i + 1];
+      if (ch === '"' && quoted && next === '"') {
+        cell += '"';
+        i++;
+      } else if (ch === '"') {
+        quoted = !quoted;
+      } else if (ch === ',' && !quoted) {
+        row.push(cell);
+        cell = '';
+      } else if ((ch === '\n' || ch === '\r') && !quoted) {
+        if (ch === '\r' && next === '\n') i++;
+        row.push(cell);
+        if (row.some(v => v.trim() !== '')) rows.push(row);
+        row = [];
+        cell = '';
+      } else {
+        cell += ch;
+      }
+    }
+    if (cell || row.length) {
+      row.push(cell);
+      rows.push(row);
+    }
+    return rows;
+  }
+
+  function normalizeHeader(value) {
+    return String(value || '').trim().toLowerCase()
+      .replace(/[%./()]/g, '')
+      .replace(/\s+/g, '_');
+  }
+
+  function numberValue(value, fallback = 0) {
+    const parsed = Number(String(value ?? '').replace(/[^0-9.-]/g, ''));
+    return Number.isFinite(parsed) ? parsed : fallback;
+  }
+
+  function findColumn(headers, options) {
+    for (const option of options) {
+      const index = headers.indexOf(option);
+      if (index >= 0) return index;
+    }
+    return -1;
+  }
+
+  function importRowsFromCsv(text) {
+    const raw = parseCsv(text);
+    if (raw.length < 2) throw new Error('The CSV does not contain data rows.');
+    const headers = raw[0].map(normalizeHeader);
+    const indexes = {
+      name: findColumn(headers, ['player', 'player_name', 'name']),
+      avg: findColumn(headers, ['avg', 'batting_average']),
+      obp: findColumn(headers, ['obp', 'on_base_percentage']),
+      slg: findColumn(headers, ['slg', 'slugging_percentage']),
+      ops: findColumn(headers, ['ops']),
+      hits: findColumn(headers, ['h', 'hits']),
+      hr: findColumn(headers, ['hr', 'home_runs']),
+      rbi: findColumn(headers, ['rbi']),
+      runs: findColumn(headers, ['r', 'runs']),
+      sb: findColumn(headers, ['sb', 'stolen_bases']),
+      games: findColumn(headers, ['gp', 'g', 'games', 'games_played']),
+      era: findColumn(headers, ['era']),
+      whip: findColumn(headers, ['whip']),
+      so: findColumn(headers, ['so', 'k', 'strikeouts']),
+      bb: findColumn(headers, ['bb', 'walks']),
+      wins: findColumn(headers, ['w', 'wins']),
+      saves: findColumn(headers, ['sv', 'saves']),
+      innings: findColumn(headers, ['ip', 'innings_pitched']),
+      appearances: findColumn(headers, ['app', 'appearances'])
+    };
+    if (indexes.name < 0) throw new Error('A player name column could not be identified.');
+
+    return raw.slice(1).map(row => ({
+      name: String(row[indexes.name] || '').trim(),
+      season: {
+        games: indexes.games >= 0 ? numberValue(row[indexes.games]) : 0,
+        avg: indexes.avg >= 0 ? String(row[indexes.avg] || '.000') : '.000',
+        obp: indexes.obp >= 0 ? String(row[indexes.obp] || '.000') : '.000',
+        slg: indexes.slg >= 0 ? String(row[indexes.slg] || '.000') : '.000',
+        ops: indexes.ops >= 0 ? String(row[indexes.ops] || '.000') : '.000',
+        hits: indexes.hits >= 0 ? numberValue(row[indexes.hits]) : 0,
+        hr: indexes.hr >= 0 ? numberValue(row[indexes.hr]) : 0,
+        rbi: indexes.rbi >= 0 ? numberValue(row[indexes.rbi]) : 0,
+        runs: indexes.runs >= 0 ? numberValue(row[indexes.runs]) : 0,
+        sb: indexes.sb >= 0 ? numberValue(row[indexes.sb]) : 0,
+        era: indexes.era >= 0 ? String(row[indexes.era] || '0.00') : '0.00',
+        whip: indexes.whip >= 0 ? String(row[indexes.whip] || '0.00') : '0.00',
+        strikeouts: indexes.so >= 0 ? numberValue(row[indexes.so]) : 0,
+        walks: indexes.bb >= 0 ? numberValue(row[indexes.bb]) : 0,
+        wins: indexes.wins >= 0 ? numberValue(row[indexes.wins]) : 0,
+        saves: indexes.saves >= 0 ? numberValue(row[indexes.saves]) : 0,
+        innings: indexes.innings >= 0 ? String(row[indexes.innings] || '0.0') : '0.0',
+        appearances: indexes.appearances >= 0 ? numberValue(row[indexes.appearances]) : 0
+      }
+    })).filter(row => row.name);
+  }
+
+  function rosterMatch(importName) {
+    const clean = value => String(value || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+    return state.roster.find(player =>
+      clean(player.gamechanger_name || player.name) === clean(importName)
+    );
+  }
+
+  function renderGcMapping() {
+    const body = document.getElementById('gcMappingBody');
+    if (!body) return;
+    body.innerHTML = gcImportedRows.length
+      ? gcImportedRows.map(row => {
+          const match = rosterMatch(row.name);
+          return `<tr>
+            <td>${row.name}</td>
+            <td>${match ? match.name : '—'}</td>
+            <td><span class="gc-match ${match ? 'matched' : 'unmatched'}">${match ? 'Matched' : 'Needs Review'}</span></td>
+          </tr>`;
+        }).join('')
+      : '<tr><td colspan="3">Import a CSV to review player matching.</td></tr>';
+  }
+
+  function renderGcConfig() {
+    const config = state.gamechanger || {};
+    const teamUrl = document.getElementById('gcTeamUrl');
+    if (!teamUrl) return;
+    teamUrl.value = config.team_url || '';
+    document.getElementById('gcTeamName').value = config.team_name || 'Colorado Tribe Baseball';
+    document.getElementById('gcSeason').value = config.season || '2026';
+    renderGcMapping();
+  }
+
+  document.getElementById('gcConfigForm')?.addEventListener('submit', event => {
+    event.preventDefault();
+    state.gamechanger = {
+      ...state.gamechanger,
+      team_url: document.getElementById('gcTeamUrl').value.trim(),
+      team_name: document.getElementById('gcTeamName').value.trim(),
+      season: document.getElementById('gcSeason').value.trim(),
+      live_label: 'Follow Live on GameChanger',
+      stats_last_imported: state.gamechanger.stats_last_imported || ''
+    };
+    saveLocal('gamechanger');
+    showToast('GameChanger connection saved.');
+  });
+
+  document.getElementById('gcCsvInput')?.addEventListener('change', async event => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    try {
+      gcImportedRows = importRowsFromCsv(await file.text());
+      const matches = gcImportedRows.filter(row => rosterMatch(row.name)).length;
+      document.getElementById('gcImportSummary').textContent =
+        `${gcImportedRows.length} players found · ${matches} matched · ${gcImportedRows.length - matches} need review`;
+      document.getElementById('gcApplyImport').disabled = matches === 0;
+      renderGcMapping();
+    } catch (error) {
+      gcImportedRows = [];
+      document.getElementById('gcImportSummary').textContent = error.message;
+      document.getElementById('gcApplyImport').disabled = true;
+      renderGcMapping();
+    }
+  });
+
+  document.getElementById('gcApplyImport')?.addEventListener('click', () => {
+    let applied = 0;
+    gcImportedRows.forEach(row => {
+      const player = rosterMatch(row.name);
+      if (!player) return;
+      const existing = state.playerStats?.[player.slug] || {
+        type: String(player.position || '').toUpperCase().includes('P') ? 'pitcher' : 'hitter',
+        season: {},
+        game_log: [],
+        highlights: []
+      };
+      existing.season = { ...existing.season, ...row.season };
+      if (!state.playerStats) state.playerStats = {};
+      state.playerStats[player.slug] = existing;
+      applied++;
+    });
+
+    state.gamechanger.stats_last_imported = new Date().toISOString();
+    saveLocal('gamechanger');
+    localStorage.setItem('tribe-admin-playerStats', JSON.stringify(state.playerStats || {}));
+    showToast(`${applied} player records imported.`);
+  });
+
   function renderAll() {
     renderDashboard();
     renderPlayerList();
@@ -389,6 +590,7 @@
     renderNewsList();
     renderSponsorList();
     renderStatsForm();
+    renderGcConfig();
   }
 
   loadData().catch(error => {

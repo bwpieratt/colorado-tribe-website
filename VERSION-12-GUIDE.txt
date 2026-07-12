@@ -1,0 +1,48 @@
+COLORADO TRIBE WEBSITE VERSION 12 — GAMECHANGER WORKFLOW
+
+WHAT'S NEW
+- Dedicated GameChanger hub page
+- GameChanger team-link configuration
+- GameChanger Sync Center in Admin
+- Season-stat CSV import
+- Player-name matching
+- Imported stats update player-stats.json
+- GameChanger event and box-score link fields
+- GameChanger navigation link
+- Updated publishing workflow
+
+RECOMMENDED WORKFLOW
+1. Score and finalize each game in GameChanger.
+2. Review and correct the GameChanger box score.
+3. Add the public GameChanger event link to the matching game.
+4. Share or save the box-score PDF and add its URL when available.
+5. Periodically export season statistics from GameChanger as CSV.
+6. Open /admin/ and select GameChanger.
+7. Import the CSV and review player matching.
+8. Apply the import.
+9. Export:
+   player-stats.json
+   games.json
+   gamechanger.json
+10. Replace those files in the website data folder.
+11. Commit and push with GitHub Desktop.
+
+CONNECT THE TEAM
+Open data/gamechanger.json or use the Admin GameChanger panel.
+Paste the public GameChanger team URL.
+
+IMPORTANT
+GameChanger remains the official scoring and statistics source.
+This version does not scrape GameChanger or use an unofficial API.
+The CSV importer supports common baseball stat headings, but exported column names may vary.
+Review imported statistics before publishing.
+
+HOW TO PUBLISH VERSION 12
+1. Unzip this package.
+2. In GitHub Desktop choose Repository > Show in Finder.
+3. Copy everything into the repository folder.
+4. Choose Replace.
+5. Commit with:
+   Add Version 12 GameChanger workflow
+6. Push origin.
+7. Cloudflare deploys automatically.

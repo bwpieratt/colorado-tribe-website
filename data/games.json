@@ -15,7 +15,11 @@
     "score": "",
     "result": "",
     "recap": "",
-    "box_score": ""
+    "box_score": "",
+    "gamechanger_url": "",
+    "gamechanger_event_id": "",
+    "box_score_pdf": "",
+    "live_status": "Scheduled"
   },
   {
     "slug": "wow-factor-june-3",
@@ -33,7 +37,11 @@
     "score": "",
     "result": "",
     "recap": "",
-    "box_score": ""
+    "box_score": "",
+    "gamechanger_url": "",
+    "gamechanger_event_id": "",
+    "box_score_pdf": "",
+    "live_status": "Scheduled"
   },
   {
     "slug": "cutthroats-june-4",
@@ -51,7 +59,11 @@
     "score": "",
     "result": "",
     "recap": "",
-    "box_score": ""
+    "box_score": "",
+    "gamechanger_url": "",
+    "gamechanger_event_id": "",
+    "box_score_pdf": "",
+    "live_status": "Scheduled"
   },
   {
     "slug": "arvada-elite-june-8",
@@ -69,7 +81,11 @@
     "score": "",
     "result": "",
     "recap": "",
-    "box_score": ""
+    "box_score": "",
+    "gamechanger_url": "",
+    "gamechanger_event_id": "",
+    "box_score_pdf": "",
+    "live_status": "Scheduled"
   },
   {
     "slug": "dirt-devils-june-9",
@@ -87,7 +103,11 @@
     "score": "",
     "result": "",
     "recap": "",
-    "box_score": ""
+    "box_score": "",
+    "gamechanger_url": "",
+    "gamechanger_event_id": "",
+    "box_score_pdf": "",
+    "live_status": "Scheduled"
   },
   {
     "slug": "denver-generals-june-11",
@@ -105,7 +125,11 @@
     "score": "",
     "result": "",
     "recap": "",
-    "box_score": ""
+    "box_score": "",
+    "gamechanger_url": "",
+    "gamechanger_event_id": "",
+    "box_score_pdf": "",
+    "live_status": "Scheduled"
   },
   {
     "slug": "denver-generals-june-15",
@@ -123,7 +147,11 @@
     "score": "",
     "result": "",
     "recap": "",
-    "box_score": ""
+    "box_score": "",
+    "gamechanger_url": "",
+    "gamechanger_event_id": "",
+    "box_score_pdf": "",
+    "live_status": "Scheduled"
   },
   {
     "slug": "usa-prime-june-22",
@@ -141,7 +169,11 @@
     "score": "",
     "result": "",
     "recap": "",
-    "box_score": ""
+    "box_score": "",
+    "gamechanger_url": "",
+    "gamechanger_event_id": "",
+    "box_score_pdf": "",
+    "live_status": "Scheduled"
   },
   {
     "slug": "wardogs-june-23",
@@ -159,7 +191,11 @@
     "score": "",
     "result": "",
     "recap": "",
-    "box_score": ""
+    "box_score": "",
+    "gamechanger_url": "",
+    "gamechanger_event_id": "",
+    "box_score_pdf": "",
+    "live_status": "Scheduled"
   },
   {
     "slug": "arvada-elite-june-24",
@@ -177,7 +213,11 @@
     "score": "",
     "result": "",
     "recap": "",
-    "box_score": ""
+    "box_score": "",
+    "gamechanger_url": "",
+    "gamechanger_event_id": "",
+    "box_score_pdf": "",
+    "live_status": "Scheduled"
   },
   {
     "slug": "greeley-grays-june-29",
@@ -195,7 +235,11 @@
     "score": "",
     "result": "",
     "recap": "",
-    "box_score": ""
+    "box_score": "",
+    "gamechanger_url": "",
+    "gamechanger_event_id": "",
+    "box_score_pdf": "",
+    "live_status": "Scheduled"
   },
   {
     "slug": "noco-owlz-june-30",
@@ -213,7 +257,11 @@
     "score": "",
     "result": "",
     "recap": "",
-    "box_score": ""
+    "box_score": "",
+    "gamechanger_url": "",
+    "gamechanger_event_id": "",
+    "box_score_pdf": "",
+    "live_status": "Scheduled"
   },
   {
     "slug": "usa-prime-july-7",
@@ -231,7 +279,11 @@
     "score": "",
     "result": "",
     "recap": "",
-    "box_score": ""
+    "box_score": "",
+    "gamechanger_url": "",
+    "gamechanger_event_id": "",
+    "box_score_pdf": "",
+    "live_status": "Scheduled"
   },
   {
     "slug": "wow-factor-july-8",
@@ -249,7 +301,11 @@
     "score": "",
     "result": "",
     "recap": "",
-    "box_score": ""
+    "box_score": "",
+    "gamechanger_url": "",
+    "gamechanger_event_id": "",
+    "box_score_pdf": "",
+    "live_status": "Scheduled"
   },
   {
     "slug": "dirt-devils-july-14",
@@ -267,7 +323,11 @@
     "score": "",
     "result": "",
     "recap": "",
-    "box_score": ""
+    "box_score": "",
+    "gamechanger_url": "",
+    "gamechanger_event_id": "",
+    "box_score_pdf": "",
+    "live_status": "Scheduled"
   },
   {
     "slug": "greeley-grays-july-15",
@@ -285,7 +345,11 @@
     "score": "",
     "result": "",
     "recap": "",
-    "box_score": ""
+    "box_score": "",
+    "gamechanger_url": "",
+    "gamechanger_event_id": "",
+    "box_score_pdf": "",
+    "live_status": "Scheduled"
   },
   {
     "slug": "noco-owlz-july-17",
@@ -303,7 +367,11 @@
     "score": "",
     "result": "",
     "recap": "",
-    "box_score": ""
+    "box_score": "",
+    "gamechanger_url": "",
+    "gamechanger_event_id": "",
+    "box_score_pdf": "",
+    "live_status": "Scheduled"
   },
   {
     "slug": "playoffs-july-19",
@@ -321,6 +389,10 @@
     "score": "",
     "result": "",
     "recap": "",
-    "box_score": ""
+    "box_score": "",
+    "gamechanger_url": "",
+    "gamechanger_event_id": "",
+    "box_score_pdf": "",
+    "live_status": "Scheduled"
   }
 ]

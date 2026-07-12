@@ -29,6 +29,7 @@
     <button class="admin-nav" data-panel="news">News</button>
     <button class="admin-nav" data-panel="sponsors">Sponsors</button>
     <button class="admin-nav" data-panel="stats">Stats</button>
+    <button class="admin-nav" data-panel="gamechanger">GameChanger</button>
     <button class="admin-nav" data-panel="export">Export</button>
   </aside>
 
@@ -102,6 +103,7 @@
           <label>Major<input id="playerMajor"></label>
           <label>Photo Path<input id="playerPhoto" placeholder="images/players/name.jpg"></label>
           <label>Profile Slug<input id="playerSlug" placeholder="john-smith"></label>
+          <label>GameChanger Player Name<input id="playerGameChangerName" placeholder="Name exactly as shown in GameChanger"></label>
 
           <label>College Logo Path<input id="playerCollegeLogo" placeholder="images/colleges/school.png"></label>
           <label>High School<input id="playerHighSchool"></label>
@@ -205,6 +207,54 @@
       </form>
     </section>
 
+
+    <section class="admin-panel" id="panel-gamechanger">
+      <div class="admin-page-heading">
+        <div><p class="section-kicker">Integration</p><h1>GameChanger Sync Center</h1></div>
+      </div>
+
+      <div class="admin-dashboard-grid">
+        <article class="admin-card">
+          <h2>Team Connection</h2>
+          <form class="admin-form admin-form-flat" id="gcConfigForm">
+            <label>Public GameChanger Team URL
+              <input id="gcTeamUrl" type="url" placeholder="https://web.gc.com/teams/...">
+            </label>
+            <label>Team Name<input id="gcTeamName"></label>
+            <label>Season<input id="gcSeason"></label>
+            <button class="button button-primary" type="submit">Save Connection</button>
+          </form>
+        </article>
+
+        <article class="admin-card">
+          <h2>Season Stats CSV Import</h2>
+          <p>Export season totals from GameChanger as a CSV, then select the file below.</p>
+          <label class="gc-file-label">
+            Choose GameChanger CSV
+            <input id="gcCsvInput" type="file" accept=".csv,text/csv">
+          </label>
+          <div id="gcImportSummary" class="gc-import-summary">No CSV selected.</div>
+          <button class="button button-primary" id="gcApplyImport" type="button" disabled>Apply Imported Stats</button>
+        </article>
+      </div>
+
+      <article class="admin-card gc-mapping-card">
+        <h2>Player Matching</h2>
+        <p>The importer matches GameChanger player names to the <strong>GameChanger Name</strong> stored for each roster player. Review unmatched names before publishing.</p>
+        <div class="gc-mapping-table-wrap">
+          <table class="gc-mapping-table">
+            <thead><tr><th>GameChanger Name</th><th>Website Player</th><th>Status</th></tr></thead>
+            <tbody id="gcMappingBody"></tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="admin-card">
+        <h2>Game Links</h2>
+        <p>Add the public GameChanger event URL and shared box-score PDF link in the Games editor. Those links appear on the matching GameCenter page.</p>
+      </article>
+    </section>
+
     <section class="admin-panel" id="panel-export">
       <div class="admin-page-heading">
         <div><p class="section-kicker">Publish</p><h1>Export Files</h1></div>
@@ -216,6 +266,8 @@
         <button data-export="news">Download news.json</button>
         <button data-export="sponsors">Download sponsors.json</button>
         <button data-export="stats">Download stats.json</button>
+        <button data-export="playerStats">Download player-stats.json</button>
+        <button data-export="gamechanger">Download gamechanger.json</button>
         <button id="downloadAllButton">Download All JSON Files</button>
       </div>
 
