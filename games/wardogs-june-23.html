@@ -4,12 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07192d">
-<meta name="description" content="Colorado Tribe Baseball vs Military Wardogs on Tuesday, June 23.">
-<title>Colorado Tribe vs Military Wardogs | GameCenter</title>
+<title>Colorado Tribe vs Military Wardogs | Game Day Central</title>
 <link rel="stylesheet" href="../css/tribe.css">
 </head>
-<body class="gamecenter-body">
-
+<body class="gdc-body" data-game-slug="wardogs-june-23">
 <header class="site-header">
   <div class="site-header-inner">
     <a class="site-brand" href="../index.html">
@@ -24,6 +22,10 @@
       <a href="../coaches.html">Coaches</a>
       <a href="../stats.html">Stats</a>
       <a href="../news.html">News</a>
+      <a href="../gallery.html">Gallery</a>
+      <a href="../league.html">League</a>
+      <a href="../ballparks.html">Ballparks</a>
+      <a href="../gamechanger.html">GameChanger</a>
       <a href="../host-families.html">Host Families</a>
       <a href="../sponsors.html">Sponsors</a>
       <a href="../contact.html">Contact</a>
@@ -31,115 +33,100 @@
   </div>
 </header>
 
-<main class="gamecenter-page">
-  <section class="gamecenter-hero away">
-    <div class="gamecenter-topline">
-      <span>Away</span>
-      <span>Single Game</span>
+<main class="gdc-page">
+  <section class="gdc-scoreboard" id="gdcScoreboard">
+    <div class="gdc-status-row">
+      <span class="gdc-status" id="gdcStatus">Scheduled</span>
+      <span class="gdc-countdown" id="gdcCountdown"></span>
     </div>
-    <div class="gamecenter-matchup">
-      <div class="gamecenter-team">
-        <img src="../images/logos/tribe-logo.png" alt="Colorado Tribe">
+
+    <div class="gdc-matchup">
+      <div class="gdc-team">
+        <img id="gdcTribeLogo" src="../images/logos/tribe-logo.png" alt="Colorado Tribe">
         <h1>Colorado Tribe</h1>
+        <strong class="gdc-score" id="gdcTribeScore">—</strong>
       </div>
-      <div class="gamecenter-middle">
+
+      <div class="gdc-center">
         <span>vs</span>
-        <div class="gamecenter-score"><strong>—</strong><span>Scheduled</span></div>
+        <div id="gdcFinalLabel">Game Day Central</div>
       </div>
-      <div class="gamecenter-team">
-        <img src="../images/logos/wardogs.png" alt="Military Wardogs">
-        <h1>Military Wardogs</h1>
+
+      <div class="gdc-team">
+        <img id="gdcOpponentLogo" src="" alt="">
+        <h1 id="gdcOpponent">Opponent</h1>
+        <strong class="gdc-score" id="gdcOpponentScore">—</strong>
       </div>
     </div>
-    <span class="gamecenter-note">All-Star Game</span>
-    <div class="gamecenter-meta">
-      <div><span>Date</span><strong>Tuesday, June 23</strong></div>
-      <div><span>Time</span><strong>6:30 PM</strong></div>
-      <div><span>Venue</span><strong>Northeastern JC</strong></div>
-    </div>
-    <div class="gamecenter-actions">
-      <button class="button button-primary gamecenter-disabled" type="button" data-message="GameChanger link not connected yet.">GameChanger</button>
-      <button class="button button-outline directions-trigger" type="button"
-        data-location="Northeastern JC"
-        data-google="https://www.google.com/maps/search/?api=1&query=Northeastern+Junior+College+Sterling+CO"
-        data-apple="https://maps.apple.com/?q=Northeastern+Junior+College+Sterling+CO"
-        data-waze="https://www.waze.com/ul?q=Northeastern+Junior+College+Sterling+CO&navigate=yes">
-        Directions
-      </button>
-      <a class="button button-secondary" href="../gamechanger.html">GameChanger Hub</a>
-      <a class="button button-outline-light" href="../schedule.html">Back to Schedule</a>
+
+    <div class="gdc-meta" id="gdcMeta"></div>
+
+    <div class="gdc-primary-actions">
+      <a class="button button-primary" id="gdcGameChanger" href="#" target="_blank" rel="noopener">Follow Live on GameChanger</a>
+      <a class="button button-secondary" id="gdcBoxScore" href="#" target="_blank" rel="noopener">Box Score</a>
+      <button class="button button-outline-light directions-trigger" id="gdcDirections" type="button">Directions</button>
     </div>
   </section>
 
-  <section class="gamecenter-grid">
-    <article class="gamecenter-card">
-      <p class="section-kicker">Game Preview</p>
-      <h2>Matchup Overview</h2>
-      <p>Add probable starters, key players, recent results, and matchup notes here.</p>
-      <div class="gamecenter-placeholder-list">
-        <div><span>Probable Starter</span><strong>TBA</strong></div>
-        <div><span>Opponent Starter</span><strong>TBA</strong></div>
-        <div><span>Series Record</span><strong>0–0</strong></div>
-      </div>
+  <section class="gdc-grid">
+    <article class="gdc-card">
+      <p class="section-kicker">Pregame</p>
+      <h2>Starting Pitchers</h2>
+      <div class="gdc-starters" id="gdcStarters"></div>
     </article>
 
-    <article class="gamecenter-card">
+    <article class="gdc-card">
       <p class="section-kicker">Game Information</p>
-      <h2>Venue & Access</h2>
-      <p><strong>Northeastern JC</strong></p>
-      <p>Parking, seating, concessions, and field information can be added here.</p>
-      <a class="gamecenter-text-link" href="https://www.google.com/maps/search/?api=1&query=Northeastern+Junior+College+Sterling+CO" target="_blank" rel="noopener">Open Google Maps →</a>
+      <h2>Ballpark &amp; Access</h2>
+      <div class="gdc-info-list" id="gdcInfoList"></div>
     </article>
 
-    <article class="gamecenter-card">
-      <p class="section-kicker">Postgame</p>
-      <h2>Recap</h2>
-      <p>Game recap will be added after the game.</p>
-      <span class="gamecenter-muted">Box score available after the game.</span>
-    </article>
-
-    <article class="gamecenter-card">
-      <p class="section-kicker">Player of the Game</p>
-      <h2>Featured Performance</h2>
-      <div class="gamecenter-player-placeholder">Player Photo</div>
-      <p>Player of the Game information will appear here after the final out.</p>
-    </article>
-
-    <article class="gamecenter-card gamecenter-card-wide">
-      <p class="section-kicker">Media</p>
-      <h2>Photos & Highlights</h2>
-      <div class="gamecenter-media-grid">
-        <div>Game Photo</div>
-        <div>Game Photo</div>
-        <div>Highlight Video</div>
+    <article class="gdc-card gdc-card-wide">
+      <p class="section-kicker">Lineups</p>
+      <h2>Starting Lineups</h2>
+      <div class="gdc-lineup-grid">
+        <div>
+          <h3>Colorado Tribe</h3>
+          <ol id="gdcTribeLineup"></ol>
+        </div>
+        <div>
+          <h3 id="gdcOpponentLineupTitle">Opponent</h3>
+          <ol id="gdcOpponentLineup"></ol>
+        </div>
       </div>
+    </article>
+
+    <article class="gdc-card">
+      <p class="section-kicker">Postgame</p>
+      <h2>Game Recap</h2>
+      <div id="gdcRecap"></div>
+      <blockquote id="gdcCoachQuote"></blockquote>
+    </article>
+
+    <article class="gdc-card">
+      <p class="section-kicker">Game Awards</p>
+      <h2>Player of the Game</h2>
+      <div class="gdc-potg" id="gdcPotg"></div>
+    </article>
+
+    <article class="gdc-card gdc-card-wide">
+      <p class="section-kicker">Key Performances</p>
+      <h2>Impact Players</h2>
+      <div class="gdc-performance-grid" id="gdcPerformances"></div>
+    </article>
+
+    <article class="gdc-card gdc-card-wide">
+      <p class="section-kicker">Media</p>
+      <h2>Photos &amp; Highlights</h2>
+      <div class="gdc-media-grid" id="gdcMedia"></div>
     </article>
   </section>
 </main>
 
-
-<footer class="site-footer site-footer-expanded">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <img src="../images/logos/tribe-logo.png" alt="Colorado Tribe Baseball">
-      <div>
-        <strong>Colorado Tribe Baseball</strong>
-        <p>Summer collegiate baseball in Colorado.</p>
-      </div>
-    </div>
-    <div class="footer-links">
-      <a href="../schedule.html">Schedule</a>
-      <a href="../roster.html">Roster</a>
-      <a href="../coaches.html">Coaches</a>
-      <a href="../news.html">News</a>
-      <a href="../host-families.html">Host Families</a>
-      <a href="../sponsors.html">Sponsors</a>
-      <a href="../contact.html">Contact</a>
-    </div>
-  </div>
-  <small>© 2026 Colorado Tribe Baseball. All rights reserved.</small>
+<footer class="site-footer">
+  <strong>Colorado Tribe Baseball</strong>
+  <p>© 2026 Colorado Tribe Baseball</p>
 </footer>
-
 
 <div class="directions-modal" id="directionsModal" aria-hidden="true">
   <div class="directions-dialog" role="dialog" aria-modal="true" aria-labelledby="directionsTitle">
@@ -158,17 +145,7 @@
   </div>
 </div>
 
-<div class="setup-toast" id="setupToast" role="status"></div>
 <script src="../js/tribe.js"></script>
-<script>
-document.querySelectorAll('.gamecenter-disabled').forEach(button => {
-  button.addEventListener('click', () => {
-    const toast = document.getElementById('setupToast');
-    toast.textContent = button.dataset.message;
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 3200);
-  });
-});
-</script>
+<script src="../js/gameday-central.js"></script>
 </body>
 </html>

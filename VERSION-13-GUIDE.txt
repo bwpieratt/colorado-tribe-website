@@ -1,0 +1,45 @@
+COLORADO TRIBE WEBSITE VERSION 13 — GAME DAY CENTRAL
+
+WHAT'S NEW
+- Enhanced Game Day Central pages for every game
+- Game-status styling for Scheduled, Pregame, Live, Final, Delayed, Postponed, and Cancelled
+- Countdown to first pitch
+- Final score presentation
+- GameChanger and box-score links
+- Starting pitchers
+- Starting lineups
+- Parking, admission, weather, attendance, and time-of-game information
+- Game recap and coach quote
+- Player of the Game
+- Key performances
+- Game photos and highlight videos
+- Latest Result section on the homepage
+- Expanded game editor in Admin
+
+NOT INCLUDED
+- No Game Day sponsor integration
+- No league leaders
+- No recruiting, scouting, team operations, or CRM tools
+
+POSTGAME WORKFLOW
+1. Finalize the game in GameChanger.
+2. Open /admin/.
+3. Select Games.
+4. Set Status to Final.
+5. Enter Tribe and opponent scores.
+6. Add GameChanger and box-score links.
+7. Add recap, Player of the Game, key performances, and coach quote.
+8. Add photos or highlight links when available.
+9. Export games.json.
+10. Replace data/games.json in the repository.
+11. Commit and push with GitHub Desktop.
+
+HOW TO PUBLISH VERSION 13
+1. Unzip this package.
+2. In GitHub Desktop choose Repository > Show in Finder.
+3. Copy everything into the repository folder.
+4. Choose Replace.
+5. Commit with:
+   Build Version 13 Game Day Central
+6. Push origin.
+7. Cloudflare deploys automatically.

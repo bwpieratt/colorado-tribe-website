@@ -200,6 +200,27 @@
     document.getElementById('gameGameChanger').value = g.gamechanger || '';
     document.getElementById('gameBoxScore').value = g.box_score || '';
     document.getElementById('gameRecap').value = g.recap || '';
+    document.getElementById('gameStatus').value = g.status || g.live_status || 'Scheduled';
+    document.getElementById('gameTribeScore').value = g.tribe_score || '';
+    document.getElementById('gameOpponentScore').value = g.opponent_score || '';
+    document.getElementById('gameTribeStarter').value = g.starting_pitcher_tribe || '';
+    document.getElementById('gameOpponentStarter').value = g.starting_pitcher_opponent || '';
+    document.getElementById('gameWeather').value = g.weather || '';
+    document.getElementById('gameParking').value = g.parking || '';
+    document.getElementById('gameAdmission').value = g.admission || '';
+    document.getElementById('gameAttendance').value = g.attendance || '';
+    document.getElementById('gameTimeOfGame').value = g.time_of_game || '';
+    document.getElementById('gameWinningPitcher').value = g.winning_pitcher || '';
+    document.getElementById('gameLosingPitcher').value = g.losing_pitcher || '';
+    document.getElementById('gameSavePitcher').value = g.save_pitcher || '';
+    document.getElementById('gameTribeLineup').value = (g.lineup_tribe || []).map(v => `${v.position || ''} | ${v.name || v}`).join('\n');
+    document.getElementById('gameOpponentLineup').value = (g.lineup_opponent || []).map(v => `${v.position || ''} | ${v.name || v}`).join('\n');
+    document.getElementById('gamePotgName').value = g.player_of_game?.name || '';
+    document.getElementById('gamePotgPhoto').value = g.player_of_game?.photo || '';
+    document.getElementById('gamePotgLine').value = g.player_of_game?.line || '';
+    document.getElementById('gamePotgQuote').value = g.player_of_game?.quote || '';
+    document.getElementById('gameKeyPerformances').value = (g.key_performances || []).map(v => `${v.name || ''} | ${v.line || v.description || ''}`).join('\n');
+    document.getElementById('gameCoachQuote').value = g.coach_quote || '';
   }
 
   document.getElementById('gameForm').addEventListener('submit', event => {
@@ -211,7 +232,40 @@
       result: document.getElementById('gameResult').value.trim(),
       gamechanger: document.getElementById('gameGameChanger').value.trim(),
       box_score: document.getElementById('gameBoxScore').value.trim(),
-      recap: document.getElementById('gameRecap').value.trim()
+      recap: document.getElementById('gameRecap').value.trim(),
+      status: document.getElementById('gameStatus').value,
+      live_status: document.getElementById('gameStatus').value,
+      tribe_score: document.getElementById('gameTribeScore').value.trim(),
+      opponent_score: document.getElementById('gameOpponentScore').value.trim(),
+      starting_pitcher_tribe: document.getElementById('gameTribeStarter').value.trim(),
+      starting_pitcher_opponent: document.getElementById('gameOpponentStarter').value.trim(),
+      weather: document.getElementById('gameWeather').value.trim(),
+      parking: document.getElementById('gameParking').value.trim(),
+      admission: document.getElementById('gameAdmission').value.trim(),
+      attendance: document.getElementById('gameAttendance').value.trim(),
+      time_of_game: document.getElementById('gameTimeOfGame').value.trim(),
+      winning_pitcher: document.getElementById('gameWinningPitcher').value.trim(),
+      losing_pitcher: document.getElementById('gameLosingPitcher').value.trim(),
+      save_pitcher: document.getElementById('gameSavePitcher').value.trim(),
+      lineup_tribe: document.getElementById('gameTribeLineup').value.split(/\n+/).map(v => {
+        const [position,name] = v.split('|').map(x => x.trim());
+        return name ? { position, name } : null;
+      }).filter(Boolean),
+      lineup_opponent: document.getElementById('gameOpponentLineup').value.split(/\n+/).map(v => {
+        const [position,name] = v.split('|').map(x => x.trim());
+        return name ? { position, name } : null;
+      }).filter(Boolean),
+      player_of_game: {
+        name: document.getElementById('gamePotgName').value.trim(),
+        photo: document.getElementById('gamePotgPhoto').value.trim(),
+        line: document.getElementById('gamePotgLine').value.trim(),
+        quote: document.getElementById('gamePotgQuote').value.trim()
+      },
+      key_performances: document.getElementById('gameKeyPerformances').value.split(/\n+/).map(v => {
+        const [name,line] = v.split('|').map(x => x.trim());
+        return name ? { name, line } : null;
+      }).filter(Boolean),
+      coach_quote: document.getElementById('gameCoachQuote').value.trim()
     });
     saveLocal('games');
     renderAll();

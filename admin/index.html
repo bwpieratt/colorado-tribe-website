@@ -133,6 +133,47 @@
           <label>Opponent<input id="gameOpponent" readonly></label>
           <label>Date<input id="gameDate" readonly></label>
           <label>Final Score<input id="gameScore" placeholder="8–3"></label>
+
+          <label>Game Status
+            <select id="gameStatus">
+              <option>Scheduled</option>
+              <option>Pregame</option>
+              <option>Live</option>
+              <option>Final</option>
+              <option>Delayed</option>
+              <option>Postponed</option>
+              <option>Cancelled</option>
+            </select>
+          </label>
+          <div class="admin-form-row">
+            <label>Tribe Score<input id="gameTribeScore"></label>
+            <label>Opponent Score<input id="gameOpponentScore"></label>
+          </div>
+          <div class="admin-form-row">
+            <label>Tribe Starting Pitcher<input id="gameTribeStarter"></label>
+            <label>Opponent Starting Pitcher<input id="gameOpponentStarter"></label>
+          </div>
+          <label>Weather<input id="gameWeather"></label>
+          <label>Parking Information<textarea id="gameParking" rows="3"></textarea></label>
+          <label>Admission Information<textarea id="gameAdmission" rows="3"></textarea></label>
+          <div class="admin-form-row">
+            <label>Attendance<input id="gameAttendance"></label>
+            <label>Time of Game<input id="gameTimeOfGame"></label>
+          </div>
+          <div class="admin-form-row">
+            <label>Winning Pitcher<input id="gameWinningPitcher"></label>
+            <label>Losing Pitcher<input id="gameLosingPitcher"></label>
+          </div>
+          <label>Save Pitcher<input id="gameSavePitcher"></label>
+          <label>Colorado Tribe Lineup<textarea id="gameTribeLineup" rows="8" placeholder="One player per line: Position | Name"></textarea></label>
+          <label>Opponent Lineup<textarea id="gameOpponentLineup" rows="8" placeholder="One player per line: Position | Name"></textarea></label>
+          <label>Player of the Game Name<input id="gamePotgName"></label>
+          <label>Player of the Game Photo<input id="gamePotgPhoto"></label>
+          <label>Player of the Game Stat Line<input id="gamePotgLine"></label>
+          <label>Player of the Game Quote<textarea id="gamePotgQuote" rows="3"></textarea></label>
+          <label>Key Performances<textarea id="gameKeyPerformances" rows="6" placeholder="One per line: Player | Performance"></textarea></label>
+          <label>Coach Quote<textarea id="gameCoachQuote" rows="4"></textarea></label>
+
           <label>Status<input id="gameResult" placeholder="Final"></label>
           <label>GameChanger URL<input id="gameGameChanger"></label>
           <label>Box Score URL<input id="gameBoxScore"></label>
