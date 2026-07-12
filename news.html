@@ -23,6 +23,7 @@
       <a href="coaches.html">Coaches</a>
       <a href="stats.html">Stats</a>
       <a aria-current="page" href="news.html">News</a>
+      <a href="gallery.html">Gallery</a>
       <a href="league.html">League</a>
       <a href="ballparks.html">Ballparks</a>
       <a href="host-families.html">Host Families</a>
@@ -33,17 +34,32 @@
 </header>
 
 
-<main class="page-shell">
+<main class="content-engine-page">
   <section class="page-hero">
     <p class="section-kicker">Inside the Tribe</p>
     <h1>News</h1>
-    <p>Team announcements, game recaps, player spotlights, and community updates.</p>
+    <p>Team announcements, game recaps, player spotlights, community stories, and partner updates.</p>
   </section>
-  <section class="news-page-grid">
-    <article class="news-card news-card-featured"><span>Team News</span><h3>Colorado Tribe Announces 2026 Summer Schedule</h3><p>The Tribe opens May 30 and competes through July in the Mile High Collegiate Baseball League.</p><a href="schedule.html">View schedule →</a></article>
-    <article class="news-card"><span>Community</span><h3>Host Families Needed for the 2026 Season</h3><p>Local families can become an important part of a collegiate player's summer experience.</p><a href="host-families.html">Learn more →</a></article>
-    <article class="news-card"><span>Organization</span><h3>Sponsor Opportunities Available</h3><p>Partner with Colorado Tribe Baseball and support collegiate athletes in Colorado.</p><a href="sponsors.html">View sponsor information →</a></article>
+
+  <section class="content-tools">
+    <div>
+      <label for="newsSearch">Search news</label>
+      <input id="newsSearch" type="search" placeholder="Search articles">
+    </div>
+    <div>
+      <label for="newsCategory">Category</label>
+      <select id="newsCategory">
+        <option value="all">All categories</option>
+        <option value="Team News">Team News</option>
+        <option value="Game Recap">Game Recap</option>
+        <option value="Player Spotlight">Player Spotlight</option>
+        <option value="Community">Community</option>
+        <option value="Partners">Partners</option>
+      </select>
+    </div>
   </section>
+
+  <section class="content-card-grid" id="newsGrid"></section>
 </main>
 
 
@@ -59,8 +75,9 @@
     <div class="footer-links">
       <a href="schedule.html">Schedule</a>
       <a href="roster.html">Roster</a>
-      <a href="coaches.html">Coaches</a>
+      <a href="stats.html">Stats</a>
       <a href="news.html">News</a>
+      <a href="gallery.html">Gallery</a>
       <a href="host-families.html">Host Families</a>
       <a href="sponsors.html">Sponsors</a>
       <a href="contact.html">Contact</a>
@@ -70,5 +87,6 @@
 </footer>
 
 <script src="js/tribe.js"></script>
+<script src="js/news.js"></script>
 </body>
 </html>

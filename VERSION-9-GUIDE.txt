@@ -1,0 +1,37 @@
+COLORADO TRIBE WEBSITE VERSION 9 — CONTENT ENGINE
+
+WHAT'S NEW
+- Dynamic news system using data/news.json
+- Individual news article pages
+- Dynamic sponsor directory using data/sponsors.json
+- Dynamic statistics dashboard using data/stats.json
+- Photo gallery framework using data/galleries.json
+- Homepage now reads latest news and sponsors from data files
+- Searchable news page
+- New Gallery navigation item
+
+HOW TO ADD NEWS
+1. Open data/news.json.
+2. Copy an existing article object.
+3. Change slug, title, date, category, summary, image, featured, and body.
+4. Copy an article HTML page in articles/ and update its content.
+
+HOW TO UPDATE SPONSORS
+1. Open data/sponsors.json.
+2. Add sponsor name, tier, logo, website, and description.
+3. Put the logo in images/sponsors.
+
+HOW TO UPDATE STATS
+1. Open data/stats.json.
+2. Update team totals, batting leaders, and pitching leaders.
+3. Save, commit, and push.
+
+HOW TO PUBLISH
+1. Unzip this package.
+2. In GitHub Desktop choose Repository > Show in Finder.
+3. Copy all files and folders into the repository folder.
+4. Choose Replace.
+5. Commit with:
+   Build Version 9 content engine
+6. Push origin.
+7. Cloudflare deploys automatically.

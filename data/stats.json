@@ -1,0 +1,55 @@
+{
+  "team": {
+    "games": 0,
+    "wins": 0,
+    "losses": 0,
+    "runs_scored": 0,
+    "runs_allowed": 0
+  },
+  "batting_leaders": [
+    {
+      "name": "Player Name",
+      "avg": ".000",
+      "hr": 0,
+      "rbi": 0,
+      "ops": ".000"
+    },
+    {
+      "name": "Player Name",
+      "avg": ".000",
+      "hr": 0,
+      "rbi": 0,
+      "ops": ".000"
+    },
+    {
+      "name": "Player Name",
+      "avg": ".000",
+      "hr": 0,
+      "rbi": 0,
+      "ops": ".000"
+    }
+  ],
+  "pitching_leaders": [
+    {
+      "name": "Player Name",
+      "era": "0.00",
+      "wins": 0,
+      "so": 0,
+      "whip": "0.00"
+    },
+    {
+      "name": "Player Name",
+      "era": "0.00",
+      "wins": 0,
+      "so": 0,
+      "whip": "0.00"
+    },
+    {
+      "name": "Player Name",
+      "era": "0.00",
+      "wins": 0,
+      "so": 0,
+      "whip": "0.00"
+    }
+  ]
+}

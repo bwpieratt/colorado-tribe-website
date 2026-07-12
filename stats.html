@@ -10,49 +10,78 @@
 <body>
 
 <header class="site-header">
-<div class="site-header-inner">
-<a class="site-brand" href="index.html">
-<img alt="Colorado Tribe Baseball" src="images/logos/tribe-logo.png"/>
-<span>Colorado Tribe Baseball</span>
-</a>
-<button aria-controls="siteNav" aria-expanded="false" class="nav-toggle" type="button">Menu</button>
-<nav class="site-nav" id="siteNav">
+  <div class="site-header-inner">
+    <a class="site-brand" href="index.html">
+      <img src="images/logos/tribe-logo.png" alt="Colorado Tribe Baseball">
+      <span>Colorado Tribe Baseball</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    <nav class="site-nav" id="siteNav">
       <a href="index.html">Home</a>
       <a href="schedule.html">Schedule</a>
       <a href="roster.html">Roster</a>
       <a href="coaches.html">Coaches</a>
       <a aria-current="page" href="stats.html">Stats</a>
       <a href="news.html">News</a>
+      <a href="gallery.html">Gallery</a>
       <a href="league.html">League</a>
       <a href="ballparks.html">Ballparks</a>
       <a href="host-families.html">Host Families</a>
       <a href="sponsors.html">Sponsors</a>
       <a href="contact.html">Contact</a>
     </nav>
-</div>
+  </div>
 </header>
 
 
-<main class="page-shell">
+<main class="content-engine-page">
   <section class="page-hero">
-    <h1>Stats</h1>
-    <p>Connect this page to GameChanger data or manually maintain team and player statistics.</p>
+    <p class="section-kicker">2026 Season</p>
+    <h1>Statistics</h1>
+    <p>Team totals and individual batting and pitching leaders.</p>
   </section>
-  <section class="content-grid">
-    <article class="content-card">
-      <h2>Page Ready</h2>
-      <p>This starter page already uses the shared Colorado Tribe header, navigation, colors, responsive layout, and footer.</p>
+
+  <section class="stats-dashboard" id="teamStats"></section>
+
+  <section class="stats-leader-grid">
+    <article class="stats-panel">
+      <p class="section-kicker">Offense</p>
+      <h2>Batting Leaders</h2>
+      <div id="battingLeaders"></div>
+    </article>
+    <article class="stats-panel">
+      <p class="section-kicker">Pitching</p>
+      <h2>Pitching Leaders</h2>
+      <div id="pitchingLeaders"></div>
     </article>
   </section>
 </main>
 
 
-<footer class="site-footer">
-  <strong>Colorado Tribe Baseball</strong>
-  <p>© 2026 Colorado Tribe Baseball</p>
-  <p><a href="schedule.html">Schedule</a> · <a href="contact.html">Contact</a></p>
+<footer class="site-footer site-footer-expanded">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="images/logos/tribe-logo.png" alt="Colorado Tribe Baseball">
+      <div>
+        <strong>Colorado Tribe Baseball</strong>
+        <p>Summer collegiate baseball in Colorado.</p>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="schedule.html">Schedule</a>
+      <a href="roster.html">Roster</a>
+      <a href="stats.html">Stats</a>
+      <a href="news.html">News</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="host-families.html">Host Families</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <small>© 2026 Colorado Tribe Baseball. All rights reserved.</small>
 </footer>
 
 <script src="js/tribe.js"></script>
+<script src="js/stats.js"></script>
 </body>
 </html>

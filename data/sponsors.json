@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Presenting Sponsor",
+    "slug": "presenting-sponsor",
+    "tier": "Premier",
+    "logo": "",
+    "website": "",
+    "description": "Top-level partnership opportunity with prominent Colorado Tribe visibility."
+  },
+  {
+    "name": "Community Partner",
+    "slug": "community-partner",
+    "tier": "Community",
+    "logo": "",
+    "website": "",
+    "description": "Community-focused partnership supporting players and local baseball."
+  },
+  {
+    "name": "Baseball Partner",
+    "slug": "baseball-partner",
+    "tier": "Baseball",
+    "logo": "",
+    "website": "",
+    "description": "Baseball-specific partner providing products, services, or support."
+  }
+]
